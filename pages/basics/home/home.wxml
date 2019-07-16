@@ -1,7 +1,12 @@
 <!-- <scroll-view scroll-y class="scrollPage"> -->
 <scroll-view scroll-y class="scrollPage">
 
-
+<swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" style="min-height:600rpx;">
+  <swiper-item wx:for="{{swiperList}}" wx:key>
+    <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+    <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+  </swiper-item>
+</swiper>
 
 
   <view class='cu-tabbar-height'></view>
