@@ -1,0 +1,215 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">详细信息</view>
+</cu-custom>
+
+
+<view class="cu-bar bg-white">
+  <view class="action sub-title">
+    <text class=" text-lg text-bold text-red">{{date}}收入情况汇总</text>
+    <text class=" bg-red"></text>
+    <!-- last-child选择器-->
+  </view>
+</view>
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="cuIcon-titles text-green"></text>
+    <text class="text-lg text-bold">一、税务部门组织税费收入总计</text>
+    <text class='padding' style="text-align:right;width:4rem;">{{forecastInform.Shuiwubumenzuzhishuifeishouruzongji}}</text>
+  </view>
+</view>
+
+
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow shadow-lg radius">
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">（一）税务部门组织税收收入合计</view>
+    <view class="padding title text-bold">{{forecastInform.Shuiwubumenzuzhishuishoushouruheji}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">中央级收入</view>
+    <view class="padding title text-bold">{{forecastInform.Zhongyangjishouru}}</view>
+  </view>
+    <view class="cu-bar bg-white">
+    <view class="padding title text-bold">地方级收入</view>
+    <view class="padding title text-bold">{{forecastInform.Difangjishouru}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">自治区级收入</view>
+    <view class="padding title text-bold">{{forecastInform.Zizhiqujishouru}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">盟（市）级收入</view>
+    <view class="padding title text-bold">{{forecastInform.Mengshijishouru}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">旗县以下级收入</view>
+    <view class="padding title text-bold">{{forecastInform.Qixianyixiajishouru}}</view>
+  </view>
+
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold"> 1.国内增值税</view>
+    <view class="padding title text-bold">{{forecastInform.Guoneizengzhishui}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">其中：免抵调增增值税</view>
+    <view class="padding title text-bold">{{forecastInform.Qizhongmianditiaozengzengzhishui}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">2.国内消费税</view>
+    <view class="padding title text-bold">{{forecastInform.Guoneixiaofeishui}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">3.企业所得税</view>
+    <view class="padding title text-bold">{{forecastInform.Qiyesuodeshui}}</view>
+  </view>
+
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold"> 4.个人所得税</view>
+    <view class="padding title text-bold">{{forecastInform.Gerensuodeshui}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold"> 5.资源税</view>
+    <view class="padding title text-bold">{{forecastInform.Ziyuanshui}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">6.城镇土地使用税</view>
+    <view class="padding title text-bold">{{forecastInform.Chengzhentudishiyongshui}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">7.城市维护建设税</view>
+    <view class="padding title text-bold">{{forecastInform.Chengshiweihujiansheshui}}</view>
+  </view>
+
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">8.印花税</view>
+    <view class="padding title text-bold">{{forecastInform.Yinhuashui}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">9.土地增值税</view>
+    <view class="padding title text-bold">{{forecastInform.Tudizengzhishui}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">10.房产税</view>
+    <view class="padding title text-bold">{{forecastInform.Fangchanshui}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">11.车船税</view>
+    <view class="padding title text-bold">{{forecastInform.Chechuanshui}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">12.车辆购置税</view>
+    <view class="padding title text-bold">{{forecastInform.Chelianggouzhishui}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">13.烟叶税</view>
+    <view class="padding title text-bold">{{forecastInform.Yanyeshui}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">14.耕地占用税</view>
+    <view class="padding title text-bold">{{forecastInform.Gengdizhanyongshui}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">15.契税</view>
+    <view class="padding title text-bold">{{forecastInform.Qishui}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">16.环境保护税</view>
+    <view class="padding title text-bold">{{forecastInform.Huanjingbaohushui}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">17.其他税收</view>
+    <view class="padding title text-bold">{{forecastInform.Qitashuishou}}</view>
+  </view>
+</view>
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow shadow-lg radius">
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">（二）社会保险费收入合计</view>
+    <view class="padding title text-bold">{{forecastInform.Shehuibaoxianfeishouruheji}}</view>
+  </view>
+</view>
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow shadow-lg radius">
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">（三）非税收入合计</view>
+    <view class="padding title text-bold">{{forecastInform.Feishuishouruheji}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">1.教育费附加收入</view>
+    <view class="padding title text-bold">{{forecastInform.Jiaoyufeifujiashouru}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">2.地方教育附加</view>
+    <view class="padding title text-bold">{{forecastInform.Difangjiaoyufujia}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">3.文化事业建设费收入</view>
+    <view class="padding title text-bold">{{forecastInform.Wenhuashiyejianshefeishouru}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">4.税务部门罚没收入</view>
+    <view class="padding title text-bold">{{forecastInform.Shuiwubumenfamoshouru}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">5.残疾人就业保障金收入</view>
+    <view class="padding title text-bold">{{forecastInform.Canjirenjiuyebaozhangjinshouru}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">6.地方水利建设基金</view>
+    <view class="padding title text-bold">{{forecastInform.Difangshuilijianshejijin}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">7.废弃电器电子产品处理基金收入</view>
+    <view class="padding title text-bold">{{forecastInform.Feiqidianqidianzichanpinchulijijinshouru}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">8.大中型水库移民后期扶持基金收入</view>
+    <view class="padding title text-bold">{{forecastInform.Dazhongxingshuikuyiminhouqifuchijijinshouru}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">9.可再生能源发展基金</view>
+    <view class="padding title text-bold">{{forecastInform.Kezaishengnengyuanfazhanjijin}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">10.陆上石油矿区使用费收入</view>
+    <view class="padding title text-bold">{{forecastInform.Lushangshiyoukuangqushiyongfeishouru}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">11.煤炭价格调节基金</view>
+    <view class="padding title text-bold">{{forecastInform.Meitanjiagetiaojiejijin}}</view>
+  </view>
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">12.其他</view>
+    <view class="padding title text-bold">{{forecastInform.Qita}}</view>
+  </view>
+</view>
+
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow shadow-lg radius">
+  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">（四）其他收入合计</view>
+    <view class="padding title text-bold">{{forecastInform.Qitashouruheji}}</view>
+  </view>
+	  <view class="cu-bar bg-white">
+    <view class="padding title text-bold">1.工会经费收入</view>
+    <view class="padding title text-bold">{{forecastInform.Gonghuijingfeishouru}}</view>
+  </view>
+	  <view class="cu-bar bg-white">
+    <view class="padding title text-bold"> 2.职业年金</view>
+    <view class="padding title text-bold">{{forecastInform.Zhiyenianjin}}</view>
+  </view>
+</view>
+
+
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="cuIcon-titles text-green"></text>
+    <text class="text-lg text-bold">二、出口退税</text>
+    <text class='padding' style="text-align:right;width:10rem;">{{forecastInform.Chukoutuishui}}</text>
+  </view>
+</view>
+
+<view class="cu-bar bg-white margin-top">
+  <view class="action">
+    <text class="cuIcon-titles text-green"></text>
+    <text class="text-lg text-bold">三、海关代征</text>
+    <text class='padding' style="text-align:right;width:10rem;">{{forecastInform.Haiguandaizheng}}</text>
+  </view>
+</view>

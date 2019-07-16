@@ -1,0 +1,11 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">关于</view></cu-custom>
+<view class='margin-xl bg-white padding-xl radius shadow-lg'>
+  <view class='text-center margin-bottom text-lg  text-grey'>收入预测系统</view>
+  <view class='text-content'>
+    <view>Hi！税务系统的小伙伴！</view>
+    <view class='margin-top-sm'>该项目是国家税务局苏里格经济技术开发区设计开发的收入预测系统,实现了税收自主填报,税收信息计算汇总,方便了工商企业申报税收信息.</view>
+    <view class='margin-top-sm'>在这个项目设计之初,充分考虑了用户的使用体验，作为开发者，我们对于您因为程序优化而带来的愉悦和效率保持极高的成就感。您应当知道，我们非常的努力，才让程序看起来这么简单。</view>
+    <view class='margin-top-sm'>该项目中您遇到的任何问题和反馈意见可以反馈给我们，由衷的感谢您使用收入预测系统。</view>
+    <view class='margin-top-sm'>更多功能敬请期待！</view>
+  </view>
+</view>

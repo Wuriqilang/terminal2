@@ -1,0 +1,8 @@
+<!-- <scroll-view scroll-y class="scrollPage"> -->
+<scroll-view scroll-y class="scrollPage">
+
+
+
+
+  <view class='cu-tabbar-height'></view>
+</scroll-view>

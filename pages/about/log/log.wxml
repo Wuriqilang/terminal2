@@ -1,0 +1,12 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">日志</view></cu-custom>
+<view class="cu-timeline">
+  <view class="cu-item text-green">
+    <view class="bg-green content shadow-blur">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-green">v1.0</view>
+        <view class="cu-tag line-white">2019/07/02</view>
+      </view>
+      <view class="margin-top-sm text-content">新版本上线</view>
+    </view>
+  </view>
+</view>

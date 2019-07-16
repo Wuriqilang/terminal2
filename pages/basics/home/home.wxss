@@ -1,0 +1,47 @@
+.page {
+  height: 100Vh;
+  width: 100vw;
+}
+
+.page.show {
+  overflow: hidden;
+}
+
+.switch-sex::after {
+  content: "\e716";
+}
+
+.switch-sex::before {
+  content: "\e7a9";
+}
+
+.switch-music::after {
+  content: "\e66a";
+}
+
+.switch-music::before {
+  content: "\e6db";
+}
+
+/* pages/application/reissue/reissue.wxss */
+.calendar {
+  margin: 20px 10px 0 10px;
+  background-color:white; /*背景色为白色*/
+  padding-top: 10px;    /*上内边距为10px*/
+  color: #38ACFF;
+  border-radius: 15px;   /*添加边框圆角*/
+  border: 2rpx solid rgb(56, 255, 122);
+  -webkit-box-shadow:0 0 10px rgb(56, 255, 132);
+  -moz-box-shadow:0 0 10px rgb(56, 255, 66);
+  box-shadow:0 0 10px rgb(14, 214, 131);
+
+}
+
+.calendar-header{
+  font-size: large;
+  color: #59518d;
+}
+.calendar-board{
+  color: #c7cbe2;
+   font-weight: bold;
+}

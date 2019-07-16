@@ -1,0 +1,6 @@
+<!--pages/add/home/home.wxml-->
+<scroll-view scroll-y class="scrollPage">
+
+
+  <view class="cu-tabbar-height"></view>
+</scroll-view>

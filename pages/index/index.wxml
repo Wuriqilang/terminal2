@@ -1,0 +1,47 @@
+<!-- <cu-custom bgColor="bg-white">
+  <view class='text-bold' slot="content">终点物流 
+	<text class="cuIcon-creativefill lg text-black"></text>
+	</view>
+</cu-custom> -->
+
+
+<basics id="basicsComponent" wx:if="{{PageCur=='basics'}}"></basics>
+<about wx:if="{{PageCur=='about'}}"></about>
+<add wx:if="{{PageCur=='add'}}"></add>
+
+<view class="cu-bar tabbar bg-white shadow foot">
+  <view class="action" bindtap="NavChange" data-cur="basics">
+    <view class='icon-cu-image'>
+      <image src="/images/tabbar/basics{{PageCur=='basics'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='basics'?'text-red':'text-gray'}}">首页</view>
+  </view>
+
+	  <view class="action" bindtap="NavChange" data-cur="cate">
+    <view class='icon-cu-image'>
+      <image src="/images/tabbar/cate{{PageCur=='cate'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='cate'?'text-red':'text-gray'}}">分类</view>
+  </view>
+
+  <view class="action text-gray add-action" bindtap="NavChange" data-cur="add">
+    <button class="cu-btn cuIcon-add bg-red shadow"></button>
+    快递
+  </view>
+
+	<view class="action" bindtap="NavChange" data-cur="flea">
+    <view class='icon-cu-image'>
+      <image src="/images/tabbar/flea{{PageCur=='flea'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='flea'?'text-red':'text-gray'}}">闲置</view>
+  </view>
+
+
+  <view class="action" bindtap="NavChange" data-cur="about">
+    <view class='icon-cu-image'>
+      <image src="/images/tabbar/about{{PageCur=='about'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='about'?'text-red':'text-gray'}}">个人中心</view>
+  </view>
+
+</view>

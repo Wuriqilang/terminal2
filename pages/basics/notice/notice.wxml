@@ -1,0 +1,160 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">通知</view>
+</cu-custom>
+
+<scroll-view scroll-x class="bg-gradual-blue nav text-center">
+  <view class="cu-item {{0==TabCur?'text-white cur':''}}" bindtap="tabSelect" data-id="0">
+    <text class="cuIcon-listfill"></text> 站内通知列表
+  </view>
+  <view class="cu-item {{1==TabCur?'text-white cur':''}}" bindtap="tabSelect" data-id="1">
+    <text class="cuIcon-upstagefill"></text> 站内发布通知
+  </view>
+	<view class="cu-item {{2==TabCur?'text-white cur':''}}" bindtap="tabSelect" data-id="2">
+    <text class="cuIcon-messagefill"></text> 短信通知
+  </view>
+</scroll-view>
+
+
+  <view wx:if="{{0==TabCur}}" class="cu-timeline">
+    <view class="cu-time">消息</view>
+    <block wx:for="{{Message}}" wx:key>
+      <view wx:if="{{item.messageType=='通知'}}" class="cu-item">
+        <view class="content">
+          <view class="cu-capsule radius">
+            <view class="cu-tag bg-cyan">{{item.messageFrom}}</view>
+            <view class="cu-tag line-cyan">{{item.createdAt}}</view>
+          </view>
+          <view class="margin-top">{{item.messageContext}}</view>
+        </view>
+      </view>
+      <view wx:elif="{{item.messageType=='预警'}}" class="cu-item text-red cuIcon-attentionforbidfill">
+        <view class="content bg-red shadow-blur">
+          【预警:】{{item.messageContext}} 即将到期，请及时查看。—— {{item.createdAt}}
+        </view>
+      </view>
+      <view wx:elif="{{item.messageType=='消息'}}" class="cu-item">
+        <view class="content">
+          <text>{{item.createdAt}}</text> {{item.messageContext}} 
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <view wx:if="{{1==TabCur}}">
+  <form bindsubmit='formBindSubmit'>
+		<view class="cu-form-group margin-top">
+			<view class="title">通知标题</view>
+			<input style="text-align:right;" name="messageTitle" placeholder="输入通知标题"></input>
+		</view>
+		<view class="cu-form-group">
+			<view class="title">通知范围</view>
+			<picker name="messageTo" bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+				<view class="picker">
+					{{index?picker[index]:'请选择通知范围'}}
+				</view>
+			</picker>
+		</view>
+		<!-- !!!!! placeholder 在ios表现有偏移 建议使用 第一种样式 -->
+		<view class="cu-form-group margin-top">
+			<textarea name="messageContext" data-placeholder="通知内容" maxlength="-1" disabled="{{modalName!=null}}" placeholder-class="placeholder" class="{{textareaAValue?'value':''}}" bindinput="textareaAInput"></textarea>
+		</view>
+		<view class="padding flex flex-direction">
+			<button class="cu-btn bg-blue lg" formType="submit">提交</button>
+		</view>
+	</form>
+  </view>
+
+
+	<view wx:if="{{2==TabCur}}">
+		<view class="cu-bar bg-white margin-top">
+			<view class="action">
+				<text class="cuIcon-title text-orange "></text> 向所有用户推送提醒短信
+			</view>
+			<view class="action">
+				<button class="cu-btn bg-green shadow" bindtap="showModal" data-target="DialogModal1">推送</button>
+			</view>
+		</view>
+
+
+		<view class="cu-bar bg-white margin-top">
+			<view class="action">
+				<text class="cuIcon-title text-orange "></text> 向本月未填写用户推送提醒短信
+			</view>
+			<view class="action">
+				<button class="cu-btn bg-green shadow" bindtap="showModal" data-target="DialogModal2">推送</button>
+			</view>
+		</view>
+
+		<view class="cu-bar bg-white margin-top">
+			<view class="action">
+				<text class="cuIcon-title text-orange "></text> 向测试用户推送提醒短信
+				<input style="text-align:right;width:5rem;" bindinput='testPhoneInput'  type='digit' name="testPhone" placeholder="电话号码" value='{{testPhone}}'></input>
+			</view>
+			<view class="action">
+				<button class="cu-btn bg-green shadow" bindtap="showModal"  data-target="DialogModal3">推送</button>
+			</view>
+		</view>
+	</view>
+
+<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">向所有用户推送提醒短信</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      您确定向所有用户推送提醒短信吗?注意:管理员请勿随意此功能,以免不必要的短信对用户造成影响。
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
+        <button class="cu-btn bg-green margin-left" bindtap="smsToAll">确定</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-modal {{modalName=='DialogModal2'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">向本月未填写用户推送提醒短信</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      您确定向本月未填写用户推送提醒短信吗?注意:管理员请勿随意此功能,以免不必要的短信对用户造成影响。
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
+        <button class="cu-btn bg-green margin-left" bindtap="smsToPadding">确定</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class="cu-modal {{modalName=='DialogModal3'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">向用户推送提醒短信</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      您确定向测试用户发送醒短信吗?注意:管理员请勿随意此功能,以免不必要的短信对用户造成影响。
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
+        <button class="cu-btn bg-green margin-left" bindtap="smsToTest">确定</button>
+      </view>
+    </view>
+  </view>
+</view>
+
