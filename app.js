@@ -46,7 +46,8 @@ App({
     userInfo: null,
 		user:null,
     token:'',
-    BaseURL: "http://localhost:3000/"
+    //BaseURL: "http://localhost:3000/"
     //BaseURL:"https://api.xr1228.com/"
+    BaseURL:"https://api.it120.cc/formatTime/"
   }
 })
