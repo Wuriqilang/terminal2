@@ -31,6 +31,22 @@ Component({
         }
       }
     })
+    //4个功能展示位
+    wx.request({
+      url: app.globalData.BaseURL + '/banner/list',
+      data: {
+        key: 'mallName',
+        type: 'sale'
+      },
+      success: function (res) {
+        console.log(res.data)
+        if (res.data.code == 0) {
+          that.setData({
+            sales: res.data.data
+          });
+        }
+      }
+    })
   },
 
   methods: {

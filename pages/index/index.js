@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    PageCur:'add',
+    PageCur:'basics',
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     motto: 'Hi 开发者！',

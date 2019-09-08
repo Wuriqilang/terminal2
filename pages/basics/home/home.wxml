@@ -15,6 +15,12 @@
         </block>
       </view>
     </view>
+      <view class="menu-container">
+    <view class="menu-list" wx:for="{{sales}}" wx:key="id" bindtap="tapSales" data-id="{{item.linkUrl}}">
+      <image src="{{item.picUrl}}" />
+      <text>{{item.title}}</text>
+    </view>
+  </view>
   </view>
 
   <view class='cu-tabbar-height'></view>
