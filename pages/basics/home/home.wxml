@@ -15,12 +15,26 @@
         </block>
       </view>
     </view>
-      <view class="menu-container">
-    <view class="menu-list" wx:for="{{sales}}" wx:key="id" bindtap="tapSales" data-id="{{item.linkUrl}}">
-      <image src="{{item.picUrl}}" />
-      <text>{{item.title}}</text>
+    <view class="menu-container">
+      <view class="menu-list" wx:for="{{sales}}" wx:key="id" bindtap="tapSales" data-id="{{item.linkUrl}}">
+        <image src="{{item.picUrl}}" />
+        <text>{{item.title}}</text>
+      </view>
     </view>
-  </view>
+
+    <view class="home-hover" wx:if="{{banners}}"></view>
+    <view wx:if="{{toptuan}}" class="pingtuna-container">
+      <view class="pingtuna-title" bindtap="tapSales" data-id="{{toptuaninfo.remark}}">
+        <text>{{toptuaninfo.value}}</text>
+        <image src="../../images/home_more.png" />
+      </view>
+      <view class="pingtuna-list" wx:for="{{toptuan}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.businessId}}">
+        <view class="pingtuna-list-title">{{item.title}}</view>
+        <view wx:if="{{item.linkUrl}}" class="pingtuna-list-text">{{item.linkUrl}}</view>
+        <view wx:if="{{item.remark}}" class="pingtuna-list-info">{{item.remark}}</view>
+        <image src="{{item.picUrl}}" />
+      </view>
+    </view>
   </view>
 
   <view class='cu-tabbar-height'></view>
