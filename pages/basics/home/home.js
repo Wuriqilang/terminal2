@@ -47,6 +47,34 @@ Component({
         }
       }
     })
+    //拼团信息
+    //获取拼团商品信息
+    wx.request({
+      url: app.globalData.BaseURL + '/banner/list',
+      data: {
+        type: 'toptuan'
+      },
+      success: function (res) {
+        if (res.data.code == 0) {
+          wx.request({
+            url: app.globalData.urls + '/config/get-value',
+            data: {
+              key: 'toptuan',
+            },
+            success: function (res) {
+              if (res.data.code == 0) {
+                that.setData({
+                  toptuaninfo: res.data.data
+                });
+              }
+            }
+          })
+          that.setData({
+            toptuan: res.data.data
+          });
+        }
+      }
+    })
   },
 
   methods: {

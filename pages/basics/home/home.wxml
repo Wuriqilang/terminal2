@@ -25,7 +25,7 @@
     <view class="home-hover" wx:if="{{banners}}"></view>
     <view wx:if="{{toptuan}}" class="pingtuna-container">
       <view class="pingtuna-title" bindtap="tapSales" data-id="{{toptuaninfo.remark}}">
-        <text>{{toptuaninfo.value}}</text>
+        <text>最新资讯</text>
         <image src="../../images/home_more.png" />
       </view>
       <view class="pingtuna-list" wx:for="{{toptuan}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.businessId}}">
