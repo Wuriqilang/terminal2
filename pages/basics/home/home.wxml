@@ -5,7 +5,7 @@
       <swiper class="swiper_box" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange" circular="circular">
         <block wx:for="{{banners}}" wx:key="id">
           <swiper-item>
-            <image bindtap="tapBanner" data-id="{{item.businessId}}" src="{{item.picUrl}}_m" class="slide-image" />
+            <image bindtap="tapBanner" data-id="{{item.businessId}}" src="{{item.picUrl}}" class="slide-image" />
           </swiper-item>
         </block>
       </swiper>
@@ -16,25 +16,55 @@
       </view>
     </view>
     <view class="menu-container">
-      <view class="menu-list" wx:for="{{sales}}" wx:key="id" bindtap="tapSales" data-id="{{item.linkUrl}}">
+      <view class="menu-list" wx:for="{{menu}}" wx:key="id" bindtap="tapSales" data-id="{{item.linkUrl}}">
         <image src="{{item.picUrl}}" />
         <text>{{item.title}}</text>
       </view>
     </view>
 
     <view class="home-hover" wx:if="{{banners}}"></view>
-    <view wx:if="{{toptuan}}" class="pingtuna-container">
-      <view class="pingtuna-title" bindtap="tapSales" data-id="{{toptuaninfo.remark}}">
-        <text>最新资讯</text>
-        <image src="../../images/home_more.png" />
+    <view wx:if="{{suggest}}" class="suggest-container">
+      <view class="suggest-title" bindtap="tapSales" data-id="{{toptuaninfo.remark}}">
+        <text>好物推荐</text>
+        <image src="../../../images/home_more.png" />
       </view>
-      <view class="pingtuna-list" wx:for="{{toptuan}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.businessId}}">
-        <view class="pingtuna-list-title">{{item.title}}</view>
-        <view wx:if="{{item.linkUrl}}" class="pingtuna-list-text">{{item.linkUrl}}</view>
-        <view wx:if="{{item.remark}}" class="pingtuna-list-info">{{item.remark}}</view>
+      <view class="suggest-list" wx:for="{{suggest}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.businessId}}">
+        <view class="suggest-list-title">{{item.title}}</view>
+        <view wx:if="{{item.linkID}}" class="suggest-list-text">{{item.linkID}}</view>
+        <view wx:if="{{item.remark}}" class="suggest-list-info">{{item.remark}}</view>
         <image src="{{item.picUrl}}" />
       </view>
     </view>
+
+      <view wx:if="{{topkan}}" class="tiaozao-container" wx:for="{{topkan}}" wx:key="id">
+    <view class="tiaozao-title" bindtap="tapSales" data-id="{{item.linkUrl}}">
+      <text>{{item.title}}</text>
+      <image src="../../images/home_more.png" />
+    </view>
+    <view class="tiaozao-list" wx:for-items="{{tiaozao}}" wx:key="{{index}}" bindtap="tiaozaoTap" data-id="{{item.id}}">
+      <view class="tiaozao-list-image">
+        <image src="{{item.pic}}" />
+      </view>
+      <view class="tiaozao-list-info">
+        <view class="tiaozao-list-info-title">{{item.name}}</view>
+        <view class="tiaozao-list-info-info">{{item.characteristic}}</view>
+        <view class="tiaozao-list-info-money">
+          <view class="tiaozao-list-info-money-a">
+            <text class="a">Ұ{{pics[item.id].minPrice}}</text>
+            <text class="b">底价</text>
+          </view>
+          <view class="tiaozao-list-info-money-a">
+            <text>Ұ{{pics[item.id].originalPrice}}</text>
+            <text>原价</text>
+          </view>
+          <view class="tiaozao-list-info-money-a">
+            <text>{{pics[item.id].number}}件</text>
+            <text>限量</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
   </view>
 
   <view class='cu-tabbar-height'></view>

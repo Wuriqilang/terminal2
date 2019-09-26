@@ -15,13 +15,10 @@ Component({
   },
   //生命周期函数
   attached() {
-    //首页幻灯片
+    //首页广告大图
     var that =this;
     wx.request({
-      url: app.globalData.BaseURL + '/banner/list',
-      data: {
-        type: 'home'
-      },
+      url: app.globalData.BaseURL + '/resource/terminal/ad',
       success: function (res) {
         if (res.data.code == 0) {
           console.log(res.data)
@@ -31,46 +28,36 @@ Component({
         }
       }
     })
-    //4个功能展示位
+    //首页菜单栏
     wx.request({
-      url: app.globalData.BaseURL + '/banner/list',
-      data: {
-        key: 'mallName',
-        type: 'sale'
-      },
+      url: app.globalData.BaseURL + '/resource/terminal/menu',
       success: function (res) {
         console.log(res.data)
         if (res.data.code == 0) {
           that.setData({
-            sales: res.data.data
+            menu: res.data.data
           });
         }
       }
     })
-    //拼团信息
-    //获取拼团商品信息
+    //推荐信息
     wx.request({
-      url: app.globalData.BaseURL + '/banner/list',
-      data: {
-        type: 'toptuan'
-      },
+      url: app.globalData.BaseURL + '/resource/terminal/suggest',
       success: function (res) {
         if (res.data.code == 0) {
-          wx.request({
-            url: app.globalData.urls + '/config/get-value',
-            data: {
-              key: 'toptuan',
-            },
-            success: function (res) {
-              if (res.data.code == 0) {
-                that.setData({
-                  toptuaninfo: res.data.data
-                });
-              }
-            }
-          })
           that.setData({
-            toptuan: res.data.data
+            suggest: res.data.data
+          });
+        }
+      }
+    })
+    //跳蚤市场置顶信息
+    wx.request({
+      url: app.globalData.BaseURL + '/resource/terminal/tiaozao',
+      success: function (res) {
+        if (res.data.code == 0) {
+          that.setData({
+            tiaozao: res.data.data
           });
         }
       }
