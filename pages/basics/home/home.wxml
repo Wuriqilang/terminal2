@@ -21,7 +21,6 @@
         <text>{{item.title}}</text>
       </view>
     </view>
-
     <view class="home-hover" wx:if="{{banners}}"></view>
     <view wx:if="{{suggest}}" class="suggest-container">
       <view class="suggest-title" bindtap="tapSales" data-id="{{toptuaninfo.remark}}">
@@ -35,36 +34,51 @@
         <image src="{{item.picUrl}}" />
       </view>
     </view>
-
-      <view wx:if="{{topkan}}" class="tiaozao-container" wx:for="{{topkan}}" wx:key="id">
-    <view class="tiaozao-title" bindtap="tapSales" data-id="{{item.linkUrl}}">
-      <text>{{item.title}}</text>
-      <image src="../../images/home_more.png" />
-    </view>
-    <view class="tiaozao-list" wx:for-items="{{tiaozao}}" wx:key="{{index}}" bindtap="tiaozaoTap" data-id="{{item.id}}">
-      <view class="tiaozao-list-image">
-        <image src="{{item.pic}}" />
+    <view wx:if="{{tiaozao}}" class="tiaozao-container" wx:for="{{tiaozao}}" wx:key="id">
+      <view class="tiaozao-title" bindtap="tapSales" data-id="{{item.linkUrl}}">
+        <text>{{item.title}}</text>
+        <image src="../../../images/home_more.png" />
       </view>
-      <view class="tiaozao-list-info">
-        <view class="tiaozao-list-info-title">{{item.name}}</view>
-        <view class="tiaozao-list-info-info">{{item.characteristic}}</view>
-        <view class="tiaozao-list-info-money">
-          <view class="tiaozao-list-info-money-a">
-            <text class="a">Ұ{{pics[item.id].minPrice}}</text>
-            <text class="b">底价</text>
-          </view>
-          <view class="tiaozao-list-info-money-a">
-            <text>Ұ{{pics[item.id].originalPrice}}</text>
-            <text>原价</text>
-          </view>
-          <view class="tiaozao-list-info-money-a">
-            <text>{{pics[item.id].number}}件</text>
-            <text>限量</text>
+      <view class="tiaozao-list" wx:for-items="{{tiaozaos}}" wx:key="{{index}}" bindtap="tiaozaoTap" data-id="{{item.id}}">
+        <view class="tiaozao-list-image">
+          <image src="{{item.goodPicUrl}}" />
+        </view>
+        <view class="tiaozao-list-info">
+          <view class="tiaozao-list-info-title">{{item.goodName}}</view>
+          <view class="tiaozao-list-info-info">{{item.characteristic}}</view>
+          <view class="tiaozao-list-info-money">
+            <view class="tiaozao-list-info-money-a">
+              <text class="a">Ұ{{item.priceNow}}</text>
+              <text class="b">现价</text>
+            </view>
+            <view class="tiaozao-list-info-money-a">
+              <text>Ұ{{item.priceOrigin}}</text>
+              <text>原价</text>
+            </view>
+            <view class="tiaozao-list-info-money-a">
+              <text>{{item.numberOrders}}件</text>
+              <text>限量</text>
+            </view>
           </view>
         </view>
       </view>
     </view>
-  </view>
+    <view wx:if="{{toptopic}}" class="topic-container" wx:for="{{toptopic}}" wx:key="id">
+      <view class="topic-title" bindtap="tapSales" data-id="{{item.linkUrl}}">
+        <text>{{item.title}}</text>
+        <image src="../../../images/home_more.png" />
+      </view>
+      <scroll-view class="topic-list-box" scroll-x="true">
+        <view class="topic-list" wx:for-items="{{toptopics}}" wx:key="{{index}}" bindtap="toTopic" data-id="{{item.id}}">
+          <image src="{{item.pic}}" />
+          <view class="topic-list-info">
+            <view class="topic-list-info-title">{{item.title}}</view>
+            <view class="topic-list-info-text">{{item.descript}}</view>
+            <view wx:if="{{item.income}}" class="topic-list-info-money">{{item.income}}</view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
   </view>
 
   <view class='cu-tabbar-height'></view>

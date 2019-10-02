@@ -56,9 +56,52 @@ Component({
       url: app.globalData.BaseURL + '/resource/terminal/tiaozao',
       success: function (res) {
         if (res.data.code == 0) {
+          var kb = res.data.data[0].remark;
+          var kbarr = kb.split(',');
           that.setData({
             tiaozao: res.data.data
           });
+          var tiaozaos = [];
+          for (var i = 0; i < kbarr.length; i++) {
+            wx.request({
+              url: app.globalData.BaseURL + '/goods/detail/' + kbarr[i],
+              success: function (res) {
+                if (res.data.code == 0) {
+                  tiaozaos.push(res.data.data);
+                }
+                that.setData({
+                  tiaozaos: tiaozaos
+                });
+              }
+            })
+          }
+        }
+      }
+    })
+    //专栏信息
+    wx.request({
+      url: app.globalData.BaseURL + '/resource/terminal/toptopic',
+      success: function (res) {
+        if (res.data.code == 0) {
+          var kb = res.data.data[0].remark;
+          var kbarr = kb.split(',');
+          that.setData({
+            toptopic: res.data.data
+          });
+          var toptopics = [];
+          for (var i = 0; i < kbarr.length; i++) {
+            wx.request({
+              url: app.globalData.urls + '/cms/detail/'+kbarr[i],
+              success: function (res) {
+                if (res.data.code == 0) {
+                  toptopics.push(res.data.data);
+                }
+                that.setData({
+                  toptopics: toptopics
+                });
+              }
+            })
+          }
         }
       }
     })
