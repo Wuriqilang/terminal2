@@ -18,7 +18,7 @@ Component({
     //首页广告大图
     var that =this;
     wx.request({
-      url: app.globalData.BaseURL + '/resource/terminal/ad',
+      url: app.globalData.BaseURL + '/resource/boe/banner',
       success: function (res) {
         if (res.data.code == 0) {
           console.log(res.data)
@@ -30,7 +30,7 @@ Component({
     })
     //首页菜单栏
     wx.request({
-      url: app.globalData.BaseURL + '/resource/terminal/menu',
+      url: app.globalData.BaseURL + '/resource/boe/menu',
       success: function (res) {
         console.log(res.data)
         if (res.data.code == 0) {

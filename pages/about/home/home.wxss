@@ -6,7 +6,7 @@ page{
 }
 
 .UCenter-bg {
-  background-image: url(https://api.xr1228.com/static/img/background4_1.jpg);
+  background-image: url(https://api.xr1228.com/static/img/background5.jpg);
   background-size: cover;
   height: 550rpx;
   display: flex;

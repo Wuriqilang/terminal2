@@ -42,7 +42,7 @@
 
 .swiper-container .slide-image {
   width: 750rpx;
-  height: 750rpx;
+  height: 960rpx;
 }
 
 .swiper-container .dots {
