@@ -12,10 +12,7 @@
     "pages/basics/summary/summary"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#39b54a",
-    "navigationBarTitleText": "BOE",
-    "navigationStyle": "custom",
-    "navigationBarTextStyle": "white"
+    "navigationStyle": "custom"
   },
   "usingComponents": {
     "cu-custom": "/colorui/components/cu-custom"

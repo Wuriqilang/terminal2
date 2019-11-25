@@ -3,13 +3,10 @@
 var app = getApp();
 function countdown(that) {
   var second = that.data.second;
-  var home = that.data.home;
-  if (home == 0) {
     if (second == 0) {
-      wx.switchTab({
-        url: '../index/index'
+      wx.redirectTo({
+        url: '/pages/index/index'
       })
-    }
   }
   var time = setTimeout(function () {
     that.setData({
@@ -22,27 +19,18 @@ function countdown(that) {
 }
 Page({
   data: {
-    second: 6,
-    home: 0
+    second: 4
   },
 
   home: function () {
-    this.setData({
-      home: 1
-    });
-    wx.switchTab({
-      url: '../index/index'
+    wx.redirectTo({
+      url: '/pages/index/index'
     })
   },
   tapBanner: function (e) {
-    if (e.currentTarget.dataset.id != 0) {
-      this.setData({
-        home: 1
-      });
       wx.redirectTo({
         url: "/pages/index/index"
       })
-    }
   },
   onLoad: function () {
     var that = this;
