@@ -1,22 +1,24 @@
 {
-  "pages": [
-    "pages/start/start",
-    "pages/index/index",
-    "pages/welcome/home/home",
-    "pages/auth/auth",
-    "pages/about/about/about",
-    "pages/about/log/log",
-    "pages/about/home/home",
-    "pages/basics/notice/notice",
-    "pages/basics/detail/detail",
-    "pages/basics/summary/summary"
-  ],
-  "window": {
-    "navigationStyle": "custom"
-  },
-  "usingComponents": {
-    "cu-custom": "/colorui/components/cu-custom"
-  },
-  "sitemapLocation": "sitemap.json",
-  "plugins": {}
+	"pages": [
+		"pages/index/index",
+		"pages/start/start",
+		"pages/welcome/home/home",
+		"pages/auth/auth",
+		"pages/about/about/about",
+		"pages/about/log/log",
+		"pages/about/home/home",
+		"pages/basics/notice/notice",
+		"pages/basics/detail/detail",
+		"pages/basics/summary/summary",
+		"pages/basics/score/score",
+		"pages/oic/oic-lot/oic-lot"
+	],
+	"window": {
+		"navigationStyle": "custom"
+	},
+	"usingComponents": {
+		"cu-custom": "/colorui/components/cu-custom"
+	},
+	"sitemapLocation": "sitemap.json",
+	"plugins": {}
 }

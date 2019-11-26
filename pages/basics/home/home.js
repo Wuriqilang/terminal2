@@ -42,7 +42,7 @@ Component({
     })
     //推荐信息
     wx.request({
-      url: app.globalData.BaseURL + '/resource/terminal/suggest',
+      url: app.globalData.BaseURL + '/resource/boe/oic',
       success: function (res) {
         if (res.data.code == 0) {
           that.setData({
@@ -114,6 +114,20 @@ Component({
         swiperCurrent: e.detail.current
       })
     },
+		tapMenu: function (e) {
+			if (e.currentTarget.dataset.id != 0) {
+				wx.navigateTo({
+					url: '/pages/basics/' + e.currentTarget.dataset.id + '/' + e.currentTarget.dataset.id
+				})
+			}
+		},
+		tapOIC: function (e) {
+			if (e.currentTarget.dataset.id != 0) {
+				wx.navigateTo({
+					url: '/pages/oic/' + e.currentTarget.dataset.id + '/' + e.currentTarget.dataset.id
+				})
+			}
+		},
   }
 
 

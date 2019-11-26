@@ -16,7 +16,7 @@
       </view>
     </view>
     <view class="menu-container">
-      <view class="menu-list" wx:for="{{menu}}" wx:key="id" bindtap="tapSales" data-id="{{item.linkUrl}}">
+      <view class="menu-list" wx:for="{{menu}}" wx:key="id" bindtap="tapMenu" data-id="{{item.linkUrl}}">
         <image src="{{item.picUrl}}" />
         <text>{{item.title}}</text>
       </view>
@@ -24,12 +24,12 @@
     <view class="home-hover" wx:if="{{banners}}"></view>
     <view wx:if="{{suggest}}" class="suggest-container">
       <view class="suggest-title" bindtap="tapSales" data-id="{{toptuaninfo.remark}}">
-        <text>好物推荐</text>
+        <text>移动OIC</text>
         <image src="../../../images/home_more.png" />
       </view>
-      <view class="suggest-list" wx:for="{{suggest}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.businessId}}">
+      <view class="suggest-list" wx:for="{{suggest}}" wx:key="id" bindtap="tapOIC" data-id="{{item.linkUrl}}">
         <view class="suggest-list-title">{{item.title}}</view>
-        <view wx:if="{{item.linkID}}" class="suggest-list-text">{{item.linkID}}</view>
+        <view wx:if="{{item.linkID}}" class="suggest-list-text">{{item.type}}</view>
         <view wx:if="{{item.remark}}" class="suggest-list-info">{{item.remark}}</view>
         <image src="{{item.picUrl}}" />
       </view>

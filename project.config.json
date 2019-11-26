@@ -47,14 +47,14 @@
 				},
 				{
 					"id": -1,
-					"name": "1.1 基础-布局",
-					"pathName": "pages/basics/layout/layout",
+					"name": "1.1 积分页面",
+					"pathName": "pages/basics/score/score",
 					"query": ""
 				},
 				{
 					"id": 2,
-					"name": "1.2 基础-背景",
-					"pathName": "pages/basics/background/background",
+					"name": "1.2 OIC-lot",
+					"pathName": "pages/oic/oic-lot/oic-lot",
 					"query": ""
 				},
 				{

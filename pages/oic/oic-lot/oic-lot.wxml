@@ -1,0 +1,94 @@
+<!-- 字符串截取 -->
+<wxs module="util">
+    var sub = function(val) {
+        return val.substring(5, 16)
+    }
+    module.exports.sub = sub;
+</wxs>
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">Lot History</view>
+</cu-custom>
+  <view class="cu-bar bg-gradual-blue search">
+    <view class="search-form radius">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="输入LotID或CSTID" confirm-type="search" bindblur="getData"></input>
+    </view>
+    <view class="action">
+      <text class="cuIcon-close"></text>
+      <text>取消</text>
+    </view>
+  </view>
+
+
+  <view class="cu-bar bg-white solid-bottom" wx:if="{{LOTID!=''}}">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text>{{FACTORY}} {{CSTID}} {{LOTID}}  {{LOT_STATE}}
+    </view>
+    <view class="action">
+      <button class="cu-btn bg-green shadow" bindtap="showModal" data-target="menuModal">刷新</button>
+    </view>
+  </view>
+<view class="cu-timeline" wx:if="{{lotHistory.length>0}}">
+  <view class="cu-time">Lot历史</view>
+	<block wx:for="{{lotHistory}}" wx:key>
+
+
+  <view wx:if="{{item.EVENT_NAME=='TrackIn'}}" class="cu-item cur text-green cuIcon-roundright">
+ 		<view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-green">{{item.EVENT_NAME}}</view>
+        <view class="cu-tag line-green">{{util.sub(item.EVENT_TIME)}}</view>
+				<view class="cu-tag bg-green">{{item.EQP_ID}}</view>
+      </view>
+      <view class="margin-top">{{item.OLD_OPER_CODE}}:{{item.EVENT_COMMENT}}</view>
+    </view>
+  </view>
+
+	<view wx:elif="{{item.EVENT_NAME=='TrackOut'}}" class="cu-item cur text-grey cuIcon-pullleft">
+ 		<view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-grey">{{item.EVENT_NAME}}</view>
+        <view class="cu-tag line-grey">{{util.sub(item.EVENT_TIME)}}</view>
+				<view class="cu-tag bg-grey">{{item.EQP_ID}}</view>
+      </view>
+      <view class="margin-top">{{item.OLD_OPER_CODE}}:{{item.EVENT_COMMENT}}</view>
+    </view>
+  </view>
+
+	<view wx:elif="{{item.EVENT_NAME=='HoldLot'}}" class="cu-item text-red cuIcon-attentionforbidfill">
+ 		<view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-red">{{item.EVENT_NAME}}</view>
+        <view class="cu-tag line-red">{{util.sub(item.EVENT_TIME)}}</view>
+				<view class="cu-tag bg-red">{{item.EQP_ID}}</view>
+      </view>
+      <view class="margin-top">{{item.OLD_OPER_CODE}}:{{item.EVENT_COMMENT}}</view>
+    </view>
+  </view>
+
+	<view wx:elif="{{item.EVENT_NAME=='ReleaseHoldLot'}}" class="cu-item text-blue cuIcon-attentionforbidfill">
+ 		<view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-blue">{{item.EVENT_NAME}}</view>
+        <view class="cu-tag line-blue">{{util.sub(item.EVENT_TIME)}}</view>
+				<view class="cu-tag bg-blue">{{item.EQP_ID}}</view>
+      </view>
+      <view class="margin-top">{{item.OLD_OPER_CODE}}:{{item.EVENT_COMMENT}}</view>
+    </view>
+  </view>
+
+	<view class="cu-item" wx:else>
+ 		<view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-brown">{{item.EVENT_NAME}}</view>
+        <view class="cu-tag line-brown">{{util.sub(item.EVENT_TIME)}}</view>
+				<view class="cu-tag bg-brown">{{item.EQP_ID}}</view>
+      </view>
+      <view class="margin-top">{{item.OLD_OPER_CODE}}:{{item.EVENT_COMMENT}}</view>
+    </view>
+  </view>
+
+	</block>
+</view>
+

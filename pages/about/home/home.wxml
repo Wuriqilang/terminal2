@@ -34,26 +34,26 @@
     <view class="cu-item arrow">
       <view class="content" bindtap="CopyLink" data-link="https://github.com/wuriqilang">
         <text class="cuIcon-github text-grey"></text>
-        <text class="text-grey">开发者信息</text>
+        <text class="text-grey"> 开发者信息</text>
       </view>
     </view>
     <view class="cu-item arrow">
       <navigator class="content" url="/pages/about/about/about" hover-class="none">
         <!-- <image src="/images/logo.png" class="png" mode="aspectFit"></image> -->
         <text class="cuIcon-notice text-red"></text>
-        <text class="text-grey ">关于收入预测系统</text>
+        <text class="text-grey "> 关于学习强BOE</text>
       </navigator>
     </view>
     <view class="cu-item arrow">
       <navigator class="content" url="/pages/about/log/log" hover-class="none">
         <text class="cuIcon-formfill text-green"></text>
-        <text class="text-grey">日志</text>
+        <text class="text-grey"> 日志</text>
       </navigator>
     </view>
     <view class="cu-item arrow">
       <button class="cu-btn content" open-type="feedback">
         <text class="cuIcon-writefill text-cyan"></text>
-        <text class="text-grey">意见反馈</text>
+        <text class="text-grey"> 意见反馈</text>
       </button>
     </view>
   </view>
