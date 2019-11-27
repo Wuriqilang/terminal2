@@ -42,7 +42,7 @@
 				{
 					"id": 0,
 					"name": "-----基础-首页-----",
-					"pathName": "pages/basics/home/home",
+					"pathName": "pages/index/index",
 					"query": ""
 				},
 				{
@@ -71,9 +71,9 @@
 				},
 				{
 					"id": 2,
-					"name": "1.5 基础-按钮",
-					"pathName": "pages/basics/button/button",
-					"query": ""
+					"name": "1.5 文章详细",
+					"pathName": "pages/topics/articleDetailH5/articleDetailH5",
+					"query": "articleID=0001"
 				},
 				{
 					"id": 2,

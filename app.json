@@ -13,7 +13,8 @@
     "pages/basics/score/score",
     "pages/oic/oic-lot/oic-lot",
     "pages/oic/oic-stocker/oic-stocker",
-    "pages/oic/oic-capacity/oic-capacity"
+    "pages/oic/oic-capacity/oic-capacity",
+    "pages/topics/articleDetailH5/articleDetailH5"
   ],
   "window": {
     "navigationStyle": "custom"

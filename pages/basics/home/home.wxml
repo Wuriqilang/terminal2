@@ -75,12 +75,12 @@
         <image src="../../../images/home_more.png" />
       </view>
       <scroll-view class="topic-list-box" scroll-x="true">
-        <view class="topic-list" wx:for-items="{{toptopics}}" wx:key="{{index}}" bindtap="toTopic" data-id="{{item.id}}">
-          <image src="{{item.picUrl}}" />
+        <view class="topic-list" wx:for-items="{{toptopics}}" wx:key="{{index}}" bindtap="toTopic" data-id="{{item.articleID}}" data-type="{{item.Type}}" bindtap="tapToptic">
+          <image src="{{item.TitleImage}}" />
           <view class="topic-list-info">
-            <view class="topic-list-info-title">{{item.title}}</view>
-            <view class="topic-list-info-text">{{item.descript}}</view>
-            <view wx:if="{{item.income}}" class="topic-list-info-money">{{item.income}}</view>
+            <view class="topic-list-info-title">{{item.Title}}</view>
+            <view class="topic-list-info-text">{{item.Overview}}</view>
+            <view wx:if="{{item.Zuozhe}}" class="topic-list-info-money">{{item.Zuozhe}}</view>
           </view>
         </view>
       </scroll-view>

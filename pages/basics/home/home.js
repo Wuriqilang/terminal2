@@ -21,7 +21,6 @@ Component({
       url: app.globalData.BaseURL + '/resource/boe/banner',
       success: function (res) {
         if (res.data.code == 0) {
-          console.log(res.data)
           that.setData({
             banners: res.data.data
           });
@@ -32,7 +31,6 @@ Component({
     wx.request({
       url: app.globalData.BaseURL + '/resource/boe/menu',
       success: function (res) {
-        console.log(res.data)
         if (res.data.code == 0) {
           that.setData({
             menu: res.data.data
@@ -80,7 +78,7 @@ Component({
     })
     //专栏信息
     wx.request({
-      url: app.globalData.BaseURL + '/resource/terminal/toptopic',
+      url: app.globalData.BaseURL + '/resource/boe/toptopic',
       success: function (res) {
         if (res.data.code == 0) {
           var kb = res.data.data[0].remark;
@@ -91,8 +89,9 @@ Component({
           var toptopics = [];
           for (var i = 0; i < kbarr.length; i++) {
             wx.request({
-              url: app.globalData.urls + '/cms/boe/'+kbarr[i],
+              url: app.globalData.BaseURL + '/articlesHot/boe/'+kbarr[i],
               success: function (res) {
+                console.log(res.data)
                 if (res.data.code == 0) {
                   toptopics.push(res.data.data);
                 }
@@ -128,7 +127,42 @@ Component({
 				})
 			}
 		},
+    tapToptic:function(e){
+      if (e.currentTarget.dataset.id != 0 && e.currentTarget.dataset.type=='file') {
+        wx.request({
+          url: app.globalData.BaseURL + '/articleDetail/boe/' + e.currentTarget.dataset.id,
+          data: {
+          },
+          success: function (res) {
+            if (res.data.code == 0) {
+              wx.showToast({
+                title: '读取文件中',
+                icon:'none'
+              })
+              var fileUrl = res.data.data.Context;
+              console.log(fileUrl)
+              wx.downloadFile({
+                url: fileUrl,
+                success: function (res) {
+                  console.log(res)
+                  var filePath = res.tempFilePath
+                  wx.openDocument({
+                    filePath: filePath,
+                    success: function (res) {
+                      console.log('打开文档成功')
+                    }
+
+                  })
+                }
+              })
+            }
+          }
+        })
+      } else if (e.currentTarget.dataset.id != 0 && e.currentTarget.dataset.type=='html') {
+        wx.navigateTo({
+          url: '/pages/topics/articleDetailH5/articleDetailH5?articleID=' + e.currentTarget.dataset.id
+        })
+      }
+    }
   }
-
-
 })

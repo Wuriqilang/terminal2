@@ -1,0 +1,32 @@
+<import src="../../../wxParse/wxParse.wxml" />
+<view class="container {{iphone}}">
+  <view class="header-container">
+    <navigator open-type="navigateBack" delta="1" hover-class="navigator-hover">
+      <image class="goback" src="../../../images/goback.png" />
+    </navigator>
+    <view class="header-name">专栏详情</view>
+  </view>
+  <view class="topic-head">
+    <view class="topic-content">
+      <view class="content-title">{{articleTitle}}</view>
+      <view class="content-lin"></view>
+      <view class="content-text">
+        <image class="content-img" mode="widthFix" src="{{TitleImage}}"></image>
+        <view class="content-box">
+          <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+        </view>
+      </view>
+    </view>
+
+        <view class="topic-avatar">
+      <image class="head-img" src="https://api.xr1228.com/static/resource/logo-tinybord.png"></image>
+      <view class="head-name">{{topics.Zuozhe}}</view>
+    </view>
+  </view>
+</view>
+
+<view class="goods-button">
+  <image src="../../images/share.png">
+    <button open-type="share"></button>
+  </image>
+</view>
