@@ -40,7 +40,7 @@ Component({
         }
       }
     })
-    //推荐信息
+    //OIC
     wx.request({
       url: app.globalData.BaseURL + '/resource/boe/oic',
       success: function (res) {
@@ -51,26 +51,26 @@ Component({
         }
       }
     })
-    //跳蚤市场置顶信息
+    //需求市场
     wx.request({
-      url: app.globalData.BaseURL + '/resource/terminal/tiaozao',
+      url: app.globalData.BaseURL + '/resource/boe/needs',
       success: function (res) {
         if (res.data.code == 0) {
           var kb = res.data.data[0].remark;
           var kbarr = kb.split(',');
           that.setData({
-            tiaozao: res.data.data
+            needs: res.data.data
           });
-          var tiaozaos = [];
+          var needsList = [];
           for (var i = 0; i < kbarr.length; i++) {
             wx.request({
-              url: app.globalData.BaseURL + '/goods/detail/' + kbarr[i],
+              url: app.globalData.BaseURL + '/needs/boe/' + kbarr[i],
               success: function (res) {
                 if (res.data.code == 0) {
-                  tiaozaos.push(res.data.data);
+                  needsList.push(res.data.data);
                 }
                 that.setData({
-                  tiaozaos: tiaozaos
+                  needsList: needsList
                 });
               }
             })
@@ -91,7 +91,7 @@ Component({
           var toptopics = [];
           for (var i = 0; i < kbarr.length; i++) {
             wx.request({
-              url: app.globalData.urls + '/cms/detail/'+kbarr[i],
+              url: app.globalData.urls + '/cms/boe/'+kbarr[i],
               success: function (res) {
                 if (res.data.code == 0) {
                   toptopics.push(res.data.data);
