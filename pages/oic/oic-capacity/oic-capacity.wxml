@@ -1,0 +1,35 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">11月投入产出监控</view>
+</cu-custom>
+
+
+<view class="ec-container margin-top">
+  <ec-canvas id="mychart-dom-gauge" canvas-id="mychart-gauge" ec="{{ ec }}"></ec-canvas>
+</view>
+
+
+<view class="container" style="padding:0 10px;">
+  <view class="cu-item text-blue">
+    <view class="bg-blue shadow-blur content">
+      <view class="cu-list menu-avatar radius">
+        <view class="cu-item">
+          <view class="cu-avatar round lg bg-blue">WIP
+            <view class="cu-tag badge">wip:49</view>
+          </view>
+          <view class="content">
+            <view class="text-grey">瓶颈工序:PLN Mask
+              <view class="cu-tag round orange sm">StepID:L7500</view>
+            </view>
+            <view class="text-gray text-sm">
+              <text class="cuIcon-redpacket_fill text-red"></text> 产能:64K</view>
+          </view>
+          <view class="action">
+            <view class="text-grey text-xs">15:07</view>
+            <text class="cuIcon-notice_forbid_fill text-gray"></text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

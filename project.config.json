@@ -59,14 +59,14 @@
 				},
 				{
 					"id": -1,
-					"name": "1.3 基础-文本",
-					"pathName": "pages/basics/text/text",
+					"name": "1.3 OIC-stocker",
+					"pathName": "pages/oic/oic-stocker/oic-stocker",
 					"query": ""
 				},
 				{
 					"id": -1,
-					"name": "1.4 基础-图标",
-					"pathName": "pages/basics/icon/icon",
+					"name": "1.4 oic-capacity",
+					"pathName": "pages/oic/oic-capacity/oic-capacity",
 					"query": ""
 				},
 				{

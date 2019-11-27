@@ -1,0 +1,53 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">Stocker状态监控</view>
+</cu-custom>
+
+
+<view class="ec-container">
+  <ec-canvas id="mychart-dom-gauge" canvas-id="mychart-gauge" ec="{{ ec }}"></ec-canvas>
+</view>
+
+<view class="ec-container">
+  <ec-canvas id="mychart-dom-gauge" canvas-id="mychart-gauge" ec="{{ ec2 }}"></ec-canvas>
+</view>
+
+
+<view class="container margin-top" style="padding:0 10px;">
+  <view class="cu-item text-blue">
+    <view class="bg-blue shadow-blur content">
+      <view class="cu-list menu-avatar radius">
+        <view class="cu-item">
+          <view class="cu-avatar round lg bg-blue">1期<view class="cu-tag badge">指令:59</view></view>
+          <view class="content">
+            <view class="text-grey">实时WIP总数:717
+            <view class="cu-tag round orange sm">backup:9</view>
+            </view>
+            <view class="text-gray text-sm">
+              <text class="cuIcon-infofill text-red"></text> CST数量:778</view>
+          </view>
+          <view class="action">
+            <view class="text-grey text-xs">15:07</view>
+            <text class="cuIcon-notice_forbid_fill text-red"></text>
+          </view>
+        </view>
+        <view class="cu-item">
+          <view class="cu-avatar round lg bg-blue">2期
+            <view class="cu-tag badge">指令:49</view>
+          </view>
+          <view class="content">
+            <view class="text-grey">实时WIP总数:556
+              <view class="cu-tag round orange sm">backup:19</view>
+            </view>
+            <view class="text-gray text-sm">
+              <text class="cuIcon-redpacket_fill text-red"></text> CST数量:727</view>
+          </view>
+          <view class="action">
+            <view class="text-grey text-xs">15:07</view>
+            <text class="cuIcon-notice_forbid_fill text-gray"></text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
