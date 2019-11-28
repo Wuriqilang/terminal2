@@ -26,7 +26,7 @@
 </view>
 
 <view class="goods-button">
-  <image src="../../images/share.png">
+  <image src="../../../images/share.png">
     <button open-type="share"></button>
   </image>
 </view>

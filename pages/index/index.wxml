@@ -8,6 +8,8 @@
 <basics id="basicsComponent" wx:if="{{PageCur=='basics'}}"></basics>
 <about wx:if="{{PageCur=='about'}}"></about>
 <add wx:if="{{PageCur=='add'}}"></add>
+<service wx:if="{{PageCur=='service'}}"></service>
+<study wx:if="{{PageCur=='study'}}"></study>
 
 <view class="cu-bar tabbar bg-white shadow foot">
   <view class="action" bindtap="NavChange" data-cur="basics">
@@ -17,11 +19,11 @@
     <view class="{{PageCur=='basics'?'text-red':'text-gray'}}">首页</view>
   </view>
 
-	  <view class="action" bindtap="NavChange" data-cur="cate">
+	  <view class="action" bindtap="NavChange" data-cur="service">
     <view class='icon-cu-image'>
-      <image src="/images/tabbar/cate{{PageCur=='cate'?'_cur':''}}.png"></image>
+      <image src="/images/tabbar/service{{PageCur=='service'?'_cur':''}}.png"></image>
     </view>
-    <view class="{{PageCur=='cate'?'text-red':'text-gray'}}">分类</view>
+    <view class="{{PageCur=='service'?'text-red':'text-gray'}}">小C</view>
   </view>
 
   <view class="action text-gray add-action" bindtap="NavChange" data-cur="add">
@@ -29,11 +31,11 @@
     提需求
   </view>
 
-	<view class="action" bindtap="NavChange" data-cur="flea">
+	<view class="action" bindtap="NavChange" data-cur="study">
     <view class='icon-cu-image'>
-      <image src="/images/tabbar/flea{{PageCur=='flea'?'_cur':''}}.png"></image>
+      <image src="/images/tabbar/study{{PageCur=='study'?'_cur':''}}.png"></image>
     </view>
-    <view class="{{PageCur=='flea'?'text-red':'text-gray'}}">闲置</view>
+    <view class="{{PageCur=='study'?'text-red':'text-gray'}}">学习</view>
   </view>
 
 

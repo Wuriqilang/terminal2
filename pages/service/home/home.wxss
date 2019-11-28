@@ -1,0 +1,4 @@
+/* pages/service/home/home.wxss */
+page{
+  padding-bottom: 100rpx;
+}

@@ -1,0 +1,48 @@
+
+<cu-custom bgColor="bg-gradual-blue">
+  <view slot="content">小C机器人</view>
+</cu-custom>
+<view class="cu-chat">
+  <view class="cu-item">
+    <view class="cu-avatar radius" style="background-image:url(../../../images/goods_service.png);"></view>
+    <view class="main">
+      <view class="content shadow">
+        <text>你好！我是B6 小C机器人，有任何OIC、CIM相关的问题都可以问我哦</text>
+      </view>
+    </view>
+  </view>
+
+  <block wx:for="{{chats}}" wx:key="index">
+
+    <view wx:if="{{item.character=='user'}}" class="cu-item self">
+      <view class="main">
+        <view class="content shadow">
+          {{item.context}}
+        </view>
+      </view>
+      <view class="cu-avatar radius" style="background-image:url(../../../images/goods_service.png);"></view>
+      <view class="date">{{item.date}}</view>
+    </view>
+
+    <view wx:if="{{item.character=='robot'}}" class="cu-item">
+      <view class="cu-avatar radius" style="background-image:url(../../../images/goods_service.png);"></view>
+      <view class="main">
+        <view class="content shadow">
+          {{item.context}}
+        </view>
+      </view>
+      <view class="date">{{item.date}}</view>
+    </view>
+  </block>
+</view>
+
+
+<view class="cu-bar foot input {{InputBottom!=0?'cur':''}}" style="bottom:{{InputBottom}}px">
+  <view class="action">
+    <text class="cuIcon-sound text-grey"></text>
+  </view>
+  <input class="solid-bottom" bindfocus="InputFocus" bindblur="InputBlur" adjust-position="{{false}}" focus="{{false}}" maxlength="300" cursor-spacing="10"></input>
+  <button class="cu-btn bg-green shadow" bindtap="tapSubmit">发送</button>
+</view>
+
+<view class="cu-tabbar-height"></view>

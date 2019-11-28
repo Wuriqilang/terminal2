@@ -2,6 +2,8 @@
   "usingComponents": {
     "basics": "/pages/basics/home/home",
     "about": "/pages/about/home/home",
-		"add":"/pages/add/home/home"
+		"add":"/pages/add/home/home",
+    "service":"/pages/service/home/home",
+    "study":"/pages/study/home/home"
   }
 }

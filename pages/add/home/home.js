@@ -10,8 +10,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    date: '',
-    yingyezhizhaobianhao: '',
+    imgList:[]
   },
   //生命周期函数
   attached() {
@@ -29,15 +28,10 @@ Component({
         date: e.detail.value,
       })
     },
-    SubmitForecast(e) {
+    bindSubmit(e) {
       var forecastInform = e.target.dataset.target;
       wx.navigateTo({
         url: "/pages/add/addPage/addPage?Nashuirenmingcheng=" + forecastInform.Nashuirenmingcheng + '&id=' + forecastInform.id + '&date=' + this.data.date
-      })
-    },
-    yingyezhizhaobianhaoInput(e) {
-      this.setData({
-        yingyezhizhaobianhao: e.detail.value
       })
     },
     submitStart(e) {
