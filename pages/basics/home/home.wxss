@@ -185,11 +185,18 @@
 
 /* ============================== */
 
+/* ============================== */
+
 .needs-container {
   background-color: #fff;
   width: 100%;
   float: left;
   border-bottom: 20rpx solid #f5f5f5;
+}
+
+.overview{
+  width: 100%;
+  float: left;
 }
 
 .needs-title {
@@ -209,7 +216,7 @@
 
 .needs-list {
   float: left;
-  height: 230rpx;
+  /* height: 230rpx; */
   width: 100%;
   border-top: 1px solid #f5f5f5;
 }
@@ -235,7 +242,7 @@
 }
 
 .needs-list-info-title {
-  font-size: 30rpx;
+  font-size: 32rpx;
   margin-top: 20rpx;
   color: #333;
   white-space: nowrap;
@@ -253,7 +260,7 @@
 }
 
 .needs-list-info-money {
-  margin-top: 30rpx;
+  margin-top: 20rpx;
 }
 
 .needs-list-info-money-a {
@@ -275,6 +282,7 @@
 .needs-list-info-money-a .b {
   color: #333;
 }
+
 
 .topic-container {
   width: 100%;

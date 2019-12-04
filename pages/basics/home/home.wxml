@@ -37,33 +37,34 @@
     </view>
 
 
-    <view wx:if="{{needs}}" class="needs-container" wx:for="{{needs}}" wx:key="id">
-      <view class="needs-title" bindtap="tapSales" data-id="{{item.linkUrl}}">
+    <view wx:if="{{needs}}" class="needs-container" wx:for="{{needs}}" wx:key="id" bindtap="tapNeeds">
+      <view class="needs-title" data-id="{{item.linkUrl}}">
         <text>{{item.title}}</text>
         <image src="../../../images/home_more.png" />
       </view>
-      <view class="needs-list" wx:for-items="{{needsList}}" wx:key bindtap="needsTap" data-id="{{item.id}}">
-        <view class="needs-list-image">
-          <image src="{{item.PicUrl}}" />
-        </view>
-        <view class="needs-list-info">
-          <view class="needs-list-info-title">{{item.Title}}</view>
-          <view class="needs-list-info-info">{{item.Dept}} {{item.People}}</view>
-          <view class="needs-list-info-money">
-            <view class="needs-list-info-money-a">
-              <text class="a">{{item.Star}}</text>
-              <text class="b">点赞</text>
-            </view>
-            <view class="needs-list-info-money-a">
-              <text>{{item.Watch}}</text>
-              <text class="b">关注</text>
-            </view>
-            <view class="needs-list-info-money-a">
-              <text>{{item.State}}</text>
-              <text class="b">状态</text>
-            </view>
+      <view class="needs-list" wx:for-items="{{needsList}}" wx:key data-id="{{item.id}}">
+              <view class="needs-list-image">
+        <image src="{{item.PicUrl}}" />
+      </view>
+      <view class="needs-list-info">
+        <view class="needs-list-info-title">{{item.Title}}</view>
+        <view class="needs-list-info-info">{{item.Dept}} {{item.People}} {{item.createdAt}}</view>
+        <view class="needs-list-info-info">{{item.Context}} </view>
+        <view class="needs-list-info-money text-lg cu-list flex">
+          <view class="cu-item flex-sub">
+            <text class="cuIcon-likefill text-red"></text>
+            <text>{{item.Star}}</text>
+          </view>
+          <view class="cu-item flex-sub">
+            <text class="cuIcon-creativefill text-blue"></text>
+            <text>{{item.Watch}}</text>
+          </view>
+          <view class="cu-item flex-sub">
+            <text class="cuIcon-servicefill text-green"></text>
+            <text>{{item.State}}</text>
           </view>
         </view>
+      </view>
       </view>
     </view>
 
@@ -75,7 +76,7 @@
         <image src="../../../images/home_more.png" />
       </view>
       <scroll-view class="topic-list-box" scroll-x="true">
-        <view class="topic-list" wx:for-items="{{toptopics}}" wx:key="{{index}}" bindtap="toTopic" data-id="{{item.articleID}}" data-type="{{item.Type}}" bindtap="tapToptic">
+        <view class="topic-list" wx:for-items="{{toptopics}}" wx:key="index" bindtap="toTopic" data-id="{{item.articleID}}" data-type="{{item.Type}}" bindtap="tapToptic">
           <image src="{{item.TitleImage}}" />
           <view class="topic-list-info">
             <view class="topic-list-info-title">{{item.Title}}</view>

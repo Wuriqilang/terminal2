@@ -1,0 +1,108 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">需求市场</view>
+</cu-custom>
+
+
+<view wx:if="{{needsList}}" class="needs-container">
+  <!-- <view class="needs-title" bindtap="tapSales" data-id="{{needs[0].linkUrl}}">
+        <text>{{needs[0].title}}</text>
+        <image src="../../../images/home_more.png" />
+      </view> -->
+  <view class="needs-list" wx:for-items="{{needsList}}" wx:key="index" data-id="{{item.id}}">
+    <view class="overview" catchtap='panel' data-index="{{index+1}}">
+      <view class="needs-list-image">
+        <image src="{{item.PicUrl}}" />
+      </view>
+      <view class="needs-list-info">
+        <view class="needs-list-info-title">{{item.Title}}</view>
+        <view class="needs-list-info-info">{{item.Dept}} {{item.People}} {{item.createdAt}}</view>
+        <view class="needs-list-info-info">{{item.Context}} </view>
+        <view class="needs-list-info-money text-lg cu-list flex">
+          <view class="cu-item flex-sub">
+            <text class="cuIcon-likefill text-red"></text>
+            <text>{{item.Star}}</text>
+          </view>
+          <view class="cu-item flex-sub">
+            <text class="cuIcon-creativefill text-blue"></text>
+            <text>{{item.Watch}}</text>
+          </view>
+          <view class="cu-item flex-sub">
+            <text class="cuIcon-servicefill text-green"></text>
+            <text>{{item.State}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="detail" wx:if="{{showIndex == index+1}}">
+      <view class="cu-list menu card-menu shadow-lg radius">
+        <view class="cu-item" style="display:block;padding:25rpx;">
+          <view class="content">
+            <text class="cuIcon-github text-grey"></text>
+            <text class="text-black"> 需求背景：</text>
+          </view>
+          <view class="content">
+            <text class="text-grey"> {{item.Background}}</text>
+          </view>
+        </view>
+        <view class="cu-item" style="display:block;padding:25rpx;">
+          <view class="content">
+            <text class="cuIcon-formfill text-green"></text>
+            <text class="text-black"> 需求内容：</text>
+          </view>
+          <view class="content">
+            <text class="text-grey"> {{item.Context}}</text>
+          </view>
+        </view>
+        <view class="cu-item" style="display:block;padding:25rpx;">
+          <view class="content">
+            <text class="cuIcon-appreciatefill text-red"></text>
+            <text class="text-black"> 价值体现:</text>
+          </view>
+          <view class="content">
+            <text class="text-grey"> {{item.Value}}</text>
+          </view>
+        </view>
+        <view class="cu-item">
+          <button class="cu-btn content" open-type="feedback" bindtap="showModal" data-id="{{item.needID}}" data-target="DialogModal1">
+            <text class="cuIcon-writefill text-cyan"></text>
+            <text class="text-black"> 提建议</text>
+          </button>
+          <button class="cu-btn content" open-type="feedback" bindtap="showModal" data-id="{{item.needID}}" data-target="DialogModal2">
+            <text class="cuIcon-read text-yellow"></text>
+            <text class="text-black"> 读想法</text>
+          </button>
+          <button class="cu-btn content animation-{{animation=='scale-up'?'scale-up':''}}"  data-class="scale-up" bindtap="toggle" open-type="feedback" >
+            <text class="cuIcon-likefill text-red"></text>
+            <text class="text-black"> 点赞</text>
+          </button>
+          <button class="cu-btn content"  open-type="feedback" bindtap="toArticle" data-id="{{item.needID}}">
+            <text class="cuIcon-share text-blue"></text>
+            <text class="text-black"> 成果</text>
+          </button>
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view>
+
+<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">建议</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      <textarea maxlength="-1" style="font-size:36rpx;"  bindinput="textareaAInput" placeholder="请输入您的建议"></textarea>
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
+        <button class="cu-btn bg-green margin-left" bindtap="hideModal">确定</button>
+      </view>
+    </view>
+  </view>
+</view>

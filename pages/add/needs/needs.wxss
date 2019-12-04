@@ -1,0 +1,111 @@
+/* pages/add/needs/needs.wxss */
+@import "../../../colorui/animation.wxss";
+
+image[class*="gif-"] {
+  border-radius: 6rpx;
+  display: block;
+}
+
+
+/* ============================== */
+
+.needs-container {
+  background-color: #fff;
+  width: 100%;
+  float: left;
+  border-bottom: 20rpx solid #f5f5f5;
+}
+
+.overview{
+  width: 100%;
+  float: left;
+}
+
+.needs-title {
+  text-align: center;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #333;
+  font-size: 32rpx;
+}
+
+.needs-title image {
+  width: 36rpx;
+  height: 36rpx;
+  margin-bottom: -6rpx;
+  margin-left: 10rpx;
+}
+
+.needs-list {
+  float: left;
+  /* height: 230rpx; */
+  width: 100%;
+  border-top: 1px solid #f5f5f5;
+}
+
+.needs-list-image {
+  float: left;
+  margin-left: 20rpx;
+  margin-top: 16rpx;
+}
+
+.needs-list-image image {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 6rpx;
+}
+
+.needs-list-info {
+  float: left;
+  width: 65%;
+  margin-left: 20rpx;
+  height: 250rpx;
+  overflow: hidden;
+}
+
+.needs-list-info-title {
+  font-size: 38rpx;
+  margin-top: 20rpx;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.needs-list-info-info {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 10rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.needs-list-info-money {
+  margin-top: 20rpx;
+}
+
+.needs-list-info-money-a {
+  display: inline-block;
+  width: 33.33%;
+  font-size: 26rpx;
+  color: #999;
+}
+
+.needs-list-info-money-a text {
+  display: block;
+}
+
+.needs-list-info-money-a .a {
+  color: #ab2b2b;
+  font-size: 30rpx;
+}
+
+.needs-list-info-money-a .b {
+  color: #333;
+}
+
+.detail{
+  float: left;
+  width: 100%;
+}

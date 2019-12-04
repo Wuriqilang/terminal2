@@ -46,20 +46,18 @@ Component({
       }
       chats.push(userChat);
       this.setData({
-        chats:chats
+        chats:chats,
+        Input: ''
+
       })
-      this.service(input);
+      setTimeout(()=>{
+        this.service(input);
+      },1000)
     },
     service(input){
-      wx.request({
-        url: 'http://api.qingyunke.com/api.php?key=free&appid=0&msg=' + input,
-        data: {},
-        success: (res) => {
-          if (res.data.result == 0) {
-            console.log(res.data)
-            var chats = this.data.chats;
+      var chats = this.data.chats;
             //解析用户输入返回相应数据
-            let output = res.data.content;
+      let output = util.resolve(input);
             let robotChat = {
               character: 'robot',
               context: output,
@@ -69,9 +67,30 @@ Component({
             this.setData({
               chats: chats
             })
-          }
-        }
-      })
+
+
+
+      // wx.request({
+      //   url: 'http://api.qingyunke.com/api.php?key=free&appid=0&msg=' + input,
+      //   data: {},
+      //   success: (res) => {
+      //     if (res.data.result == 0) {
+      //       console.log(res.data)
+      //       var chats = this.data.chats;
+      //       //解析用户输入返回相应数据
+      //       let output = res.data.content;
+      //       let robotChat = {
+      //         character: 'robot',
+      //         context: output,
+      //         date: new Date().toLocaleTimeString()
+      //       }
+      //       chats.push(robotChat);
+      //       this.setData({
+      //         chats: chats
+      //       })
+      //     }
+      //   }
+      // })
     }
   }
 })

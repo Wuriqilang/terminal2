@@ -116,7 +116,7 @@ Component({
 		tapMenu: function (e) {
 			if (e.currentTarget.dataset.id != 0) {
 				wx.navigateTo({
-					url: '/pages/basics/' + e.currentTarget.dataset.id + '/' + e.currentTarget.dataset.id
+					url: '/pages/' + e.currentTarget.dataset.id
 				})
 			}
 		},
@@ -163,6 +163,11 @@ Component({
           url: '/pages/topics/articleDetailH5/articleDetailH5?articleID=' + e.currentTarget.dataset.id
         })
       }
+    },
+    tapNeeds(){
+      wx.navigateTo({
+        url: '/pages/add/needs/needs'
+      })
     }
   }
 })

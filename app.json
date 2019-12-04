@@ -15,7 +15,9 @@
     "pages/oic/oic-stocker/oic-stocker",
     "pages/oic/oic-capacity/oic-capacity",
     "pages/topics/articleDetailH5/articleDetailH5",
-    "pages/service/home/home"
+    "pages/service/home/home",
+    "pages/add/needs/needs",
+    "pages/topics/topicList/topicList"
   ],
   "window": {
     "navigationStyle": "custom"

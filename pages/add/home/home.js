@@ -10,7 +10,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    imgList:[]
+    imgList:[],
+    textareaAValue:''
   },
   //生命周期函数
   attached() {
@@ -26,6 +27,11 @@ Component({
     DateChange(e) {
       this.setData({
         date: e.detail.value,
+      })
+    },
+    textareaAInput(e) {
+      this.setData({
+        textareaAValue: e.detail.value
       })
     },
     bindSubmit(e) {
