@@ -1,0 +1,143 @@
+<!--pages/basics/detail/detail.wxml-->
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">工作信息 {{title}}</view>
+</cu-custom>
+
+<view class="cu-bar bg-gradual-green search">
+  <view class="search-form radius">
+    <text class="cuIcon-search"></text>
+    <input type="text" placeholder="搜索图片、文章、视频" confirm-type="search"></input>
+  </view>
+  <view class="action">
+    <text class="cuIcon-close"></text>
+    <text>取消</text>
+  </view>
+</view>
+
+<view class="cu-card article isCard">
+  <view wx:for="{{taskList}}" wx:key class="cu-item shadow">
+
+    <view class="cu-capsule round margin-top margin-left">
+      <view class="cu-tag bg-blue ">
+        期限
+      </view>
+      <view class="cu-tag line-blue">
+        {{item.TaskDate}}
+      </view>
+      <button class="cu-btn round bg-green margin-left-lg" style='height:auto;' bindtap="showModal" data-target="{{item}}">编辑</button>
+      <button class="cu-btn round bg-red " style='height:auto;' bindtap="deleteTask" data-target="{{item}}">删除</button>
+    </view>
+
+    <view class="title">
+      <view class="text-cut">{{item.TaskContext}}</view>
+    </view>
+    <view class="content">
+      <view class="desc">
+        <view class="bg-white ">
+          <view class="flex">
+            <view class="cu-progress round striped active">
+              <view class="bg-green" style="width:{{item.TaskProgress}}%;">{{item.TaskProgress}}%</view>
+            </view>
+            <text wx:if="{{item.TaskComplete}}" class="cuIcon-roundcheckfill text-green margin-left-sm"></text>
+          </view>
+        </view>
+        <view class="text-content margin-top" style="height:auto"> <text class='text-bold'>具体工作任务:</text>{{item.TaskkDetail}}</view>
+        <view class="text-content " style="height:auto"> <text class='text-bold'>已完成情况:</text>{{item.TaskAlready}}</view>
+        <view class="text-content " style="height:auto"><text class='text-bold'> 未完成情况:</text>{{item.TaskPadding}}</view>
+        <view class="text-content margin-buttom" style="height:auto"> <text class="text-bold">备注:</text>{{item.TaskRemark}}</view>
+        <view>
+          <view class="cu-tag bg-red light sm round">考评科室：{{item.TaskDep}}</view>
+          <view class="cu-tag bg-blue light sm round">责任人:{{item.TaskUser}}</view>
+          <view class="cu-tag bg-green light sm round">修改时间:{{item.updatedAt}}</view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>
+
+
+<view class="cu-modal {{modalType=='绩效修改'?'show':''}}">
+  <view class="cu-dialog" style='margin-top:20%'>
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">绩效修改</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      <form bindsubmit='submitModal'>
+        <view class="cu-form-group" hidden="true">
+          <view class="title">id</view>
+          <input style="text-align:right;" name="id" placeholder="输入主要工作内容" value='{{modalData.id}}'></input>
+        </view>
+        <view class="cu-form-group solid-top">
+          <view class="title">截止时间</view>
+          <picker name="TaskDate" mode="date" value="{{modalData.TaskDate}}" start="2010-09-01" end="2022-09-01" bindchange="DateChange">
+            <view class="picker">
+              {{modalData.TaskDate}}
+            </view>
+          </picker>
+        </view>
+        <view class="cu-form-group">
+          <view class="title">工作内容</view>
+          <input style="text-align:right;" name="TaskContext" placeholder="输入主要工作内容" value='{{modalData.TaskContext}}'></input>
+        </view>
+				<view class="cu-form-group">
+          <view class="title">任务来源</view>
+          <input style="text-align:right;" name="TaskSource" placeholder="输入主要工作内容" value='{{modalData.TaskSource}}'></input>
+        </view>
+        <view class="cu-form-group">
+          <view class="title">考评科室</view>
+          <input style="text-align:right;" name="TaskDep" placeholder="请输入绩效任务考评科室" value='{{modalData.TaskDep}}'></input>
+        </view>
+
+        <view class="cu-form-group">
+          <view class="title">责任人</view>
+          <input style="text-align:right;" name="TaskUser" placeholder="请填入您的姓名" value='{{modalData.TaskUser}}'></input>
+        </view>
+
+        <view class="cu-form-group">
+          <view class="title">具体工作任务</view>
+          <input style="text-align:right;" name="TaskDetail" placeholder="工作详细信息" value='{{modalData.TaskDetail}}'></input>
+        </view>
+
+
+        <view class="cu-form-group">
+          <view class="title">已完成情况</view>
+          <input style="text-align:right;" name="TaskAlready" placeholder="选填" value='{{modalData.TaskAlready}}'></input>
+        </view>
+
+        <view class="cu-form-group">
+          <view class="title">尚未完成情况</view>
+          <input style="text-align:right;" name="TaskPadding" placeholder="选填" value='{{modalData.TaskPadding}}'>></input>
+        </view>
+
+
+        <view class="cu-form-group">
+          <view class="title">目前进度</view>
+          <input style="text-align:right;" name="TaskProgress" placeholder="请输入0～100的小数" value="{{modalData.TaskProgress}}"></input>
+        </view>
+
+        <view class="cu-form-group">
+          <view class="title">提前提醒</view>
+          <input style="text-align:right;" name="TaskAlert" placeholder="提前提醒天数，不填默认为30" value='{{modalData.TaskAlert}}'></input>
+        </view>
+
+        <!-- !!!!! placeholder 在ios表现有偏移 建议使用 第一种样式 -->
+        <view class="cu-form-group margin-top">
+          <textarea style='margin:16rpx 0 0 0;' name="TaskRemark" data-placeholder="备注" maxlength="-1" disabled="{{modalName!=null}}" placeholder-class="placeholder" class="{{textareaAValue?'value':''}}" bindinput="textareaAInput" value='{{modalData.TaskRemark}}'></textarea>
+        </view>
+        <view class="cu-bar bg-white justify-end">
+          <view class="action">
+            <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
+            <button class="cu-btn bg-green margin-left" formType="submit">确定</button>
+          </view>
+        </view>
+      </form>
+
+    </view>
+
+  </view>
+</view>

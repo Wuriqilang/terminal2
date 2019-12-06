@@ -31,6 +31,12 @@
 
 
   <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+      <view class="cu-item arrow">
+      <navigator class="content" url="/pages/task/home/home" hover-class="none">
+        <text class="cuIcon-similar text-green"></text>
+        <text class="text-grey"> 我的任务</text>
+      </navigator>
+    </view>
     <view class="cu-item arrow">
       <view class="content" bindtap="CopyLink" data-link="https://github.com/wuriqilang">
         <text class="cuIcon-github text-grey"></text>
@@ -41,19 +47,19 @@
       <navigator class="content" url="/pages/about/about/about" hover-class="none">
         <!-- <image src="/images/logo.png" class="png" mode="aspectFit"></image> -->
         <text class="cuIcon-notice text-red"></text>
-        <text class="text-grey "> 关于学习强BOE</text>
+        <text class="text-grey "> 关于BOE之窗</text>
       </navigator>
     </view>
     <view class="cu-item arrow">
       <navigator class="content" url="/pages/about/log/log" hover-class="none">
         <text class="cuIcon-formfill text-green"></text>
-        <text class="text-grey"> 日志</text>
+        <text class="text-grey"> 更新日志</text>
       </navigator>
     </view>
     <view class="cu-item arrow">
       <button class="cu-btn content" open-type="feedback">
         <text class="cuIcon-writefill text-cyan"></text>
-        <text class="text-grey"> 意见反馈</text>
+        <text class="text-grey"> 意见反馈 - 您的意见真的很宝贵</text>
       </button>
     </view>
   </view>

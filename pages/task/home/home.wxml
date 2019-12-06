@@ -1,0 +1,57 @@
+<!--pages/task/home/home.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">任务中心</view>
+</cu-custom>
+
+<scroll-view scroll-y class="">
+
+
+  <view class="text-black bg-cyan light radius text-md margin-top margin-bottom margin-left margin-right padding-top padding-bottom">
+    <text class="cuIcon-warn text-red margin-left-lg"></text> 置顶公告: {{msg}}
+  </view> 
+
+  <view class="cu-list grid no-border col-3 bg-gradual-blue radius margin-top margin-left margin-right margin-bottom">
+    <view class="cu-item" wx:for="{{iconList}}" wx:key style="padding-bottom:10rpx;">
+    <navigator url="/pages/task/{{item.url}}/{{item.url}}?type={{item.type}}">
+      <view class="cuIcon-{{item.icon}} text-{{item.color}}" style='font-size:25px;'>
+        <view wx:if="{{item.badge!=0}}" class="cu-tag badge">
+          <block wx:if="{{item.badge!=1}}">{{item.badge>99?"99+":item.badge}}</block>
+        </view>
+      </view>
+      <view class="text-white">{{item.name}}</view></navigator>
+    </view>
+  </view>
+
+
+
+
+  <view class="cu-bar bg-white">
+    <view class="action sub-title">
+      <text class="text-xl text-bold text-green">绩效日历</text>
+      <text class="bg-green"></text>
+      <!-- last-child选择器-->
+    </view>
+  </view>
+  <calendar calendar-style="calendar" header-style="calendar-header" board-style="calendar-board" days-color="{{dayStyle}}" weeks-type="cn" binddayClick="dayClick" bindnextMonth="next" bindprevMonth="prev" binddateChange="dateChange" />
+  <view class="cu-bar bg-white margin-top">
+    <view class="action sub-title">
+      <text class="text-xl text-bold text-green">管理</text>
+      <text class="bg-green"></text>
+      <!-- last-child选择器-->
+    </view>
+  </view>
+  <view class='nav-list margin-top' style='padding:0px 10rpx 0px;'>
+      <navigator open-type="navigate" hover-class='none' url="/pages/task/add/add" class="nav-li bg-olive" >
+      <view class="nav-title">添加任务</view>
+      <view class="nav-name">Add</view>
+      <text class='cuIcon-rankfill'></text>
+    </navigator>
+    <navigator open-type="navigate" hover-class='none' url="/pages/task/appoint/appoint" class="nav-li bg-olive" >
+      <view class="nav-title">发布任务</view>
+      <view class="nav-name">appoint</view>
+      <text class='cuIcon-appreciatefill'></text>
+    </navigator>
+  </view>
+  <view class='cu-tabbar-height'></view>
+</scroll-view>

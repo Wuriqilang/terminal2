@@ -1,5 +1,5 @@
 <!-- <cu-custom bgColor="bg-white">
-  <view class='text-bold' slot="content">终点物流 
+  <view class='text-bold' slot="content">test 
 	<text class="cuIcon-creativefill lg text-black"></text>
 	</view>
 </cu-custom> -->

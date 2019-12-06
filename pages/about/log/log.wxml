@@ -4,9 +4,9 @@
     <view class="bg-green content shadow-blur">
       <view class="cu-capsule radius">
         <view class="cu-tag bg-white text-green">v1.0</view>
-        <view class="cu-tag line-white">2019/07/02</view>
+        <view class="cu-tag line-white">2019/12/11</view>
       </view>
-      <view class="margin-top-sm text-content">新版本上线</view>
+      <view class="margin-top-sm text-content">就在今天，编程比赛开始啦</view>
     </view>
   </view>
 </view>

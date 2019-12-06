@@ -17,7 +17,11 @@
     "pages/topics/articleDetailH5/articleDetailH5",
     "pages/service/home/home",
     "pages/add/needs/needs",
-    "pages/topics/topicList/topicList"
+    "pages/topics/topicList/topicList",
+    "pages/task/home/home",
+    "pages/task/detail/detail",
+    "pages/task/add/add",
+    "pages/task/appoint/appoint"
   ],
   "window": {
     "navigationStyle": "custom"
@@ -26,5 +30,10 @@
     "cu-custom": "/colorui/components/cu-custom"
   },
   "sitemapLocation": "sitemap.json",
-  "plugins": {}
+  "plugins": {
+    "calendar": {
+      "version": "1.1.3",
+      "provider": "wx92c68dae5a8bb046"
+    }
+  }
 }

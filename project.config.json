@@ -83,8 +83,8 @@
 				},
 				{
 					"id": 2,
-					"name": "1.6 基础-标签",
-					"pathName": "pages/basics/tag/tag",
+					"name": "1.6 任务",
+					"pathName": "pages/task/home/home",
 					"query": ""
 				},
 				{

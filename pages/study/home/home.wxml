@@ -7,10 +7,10 @@
     <text class="cuIcon-camerafill"></text> 课程
   </view>
   <view class="cu-item {{1==TabCur?'text-white cur':''}}" bindtap="tabSelect" data-id="1">
-    <text class="cuIcon-upstagefill"></text> 考试
+    <text class="cuIcon-upstagefill"></text> 试题
   </view>
   <view class="cu-item {{2==TabCur?'text-white cur':''}}" bindtap="tabSelect" data-id="2">
-    <text class="cuIcon-clothesfill"></text> 错题集
+    <text class="cuIcon-clothesfill"></text> 经验
   </view>
 </scroll-view>
 
@@ -18,7 +18,7 @@
 <view class="cu-card case {{isCard?'no-card':''}}">
   <view class="cu-item shadow">
     <view class="image">
-      <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" mode="widthFix"></image>
+      <image src="https://api.xr1228.com/static/resource/tuoye800.png" mode="widthFix"></image>
       <view class="cu-tag bg-blue">托业</view>
       <view class="cu-bar bg-shadeBottom">
         <text class="text-cut">托业800分独家秘笈！</text>
@@ -26,7 +26,7 @@
     </view>
     <view class="cu-list menu-avatar">
       <view class="cu-item">
-        <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);"></view>
+        <view class="cu-avatar round lg" style="background-image:url(https://api.xr1228.com/static/resource/tuoye800.png);"></view>
         <view class="content flex-sub">
           <view class="text-grey">托业800学习</view>
           <view class="text-gray text-sm flex justify-between">
@@ -41,6 +41,35 @@
       </view>
     </view>
   </view>
+</view>
+</block>
 
+<block wx:if="{{1==TabCur}}">
+<view class="cu-card case {{isCard?'no-card':''}}">
+  <view class="cu-item shadow">
+    <view class="image">
+      <image src="https://api.xr1228.com/static/resource/pinzhi.png" mode="widthFix"></image>
+      <view class="cu-tag bg-blue">品质</view>
+      <view class="cu-bar bg-shadeBottom">
+        <text class="text-cut">品质质量答题</text>
+      </view>
+    </view>
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+        <view class="cu-avatar round lg" style="background-image:url(https://api.xr1228.com/static/resource/pinzhi.png);"></view>
+        <view class="content flex-sub">
+          <view class="text-grey">品质质量月</view>
+          <view class="text-gray text-sm flex justify-between">
+            2019/11/29
+            <view class="text-gray text-sm">
+              <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
+              <text class="cuIcon-appreciatefill margin-lr-xs"></text> 20
+              <text class="cuIcon-messagefill margin-lr-xs"></text> 30
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>
 </block>
