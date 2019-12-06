@@ -10,7 +10,8 @@ Page({
     showIndex:0,
     suggestID:"",
     textareaAValue: '',
-    toggleDelay: false
+    toggleDelay: false, 
+    modalName:""
   },
 
   /**
