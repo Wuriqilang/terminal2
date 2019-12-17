@@ -34,21 +34,10 @@ Component({
         textareaAValue: e.detail.value
       })
     },
-    bindSubmit(e) {
-      var forecastInform = e.target.dataset.target;
-      wx.navigateTo({
-        url: "/pages/add/addPage/addPage?Nashuirenmingcheng=" + forecastInform.Nashuirenmingcheng + '&id=' + forecastInform.id + '&date=' + this.data.date
-      })
-    },
     submitStart(e) {
       //判断是否有输入
-      if (this.data.yingyezhizhaobianhao.length == 0) {
-        wx.showToast({
-          title: '请输入单位信息!',
-          icon: 'none'
-        })
-      } else {
         var that = this;
+        return;
         wx.request({
           url: app.globalData.BaseURL + 'forecastUser/' + this.data.yingyezhizhaobianhao,
           header: {
@@ -75,7 +64,6 @@ Component({
             }
           }
         })
-      }
     }
   }
 })

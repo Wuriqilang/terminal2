@@ -64,11 +64,11 @@
           </view>
         </view>
         <view class="cu-item">
-          <button class="cu-btn content" open-type="feedback" bindtap="showModal" data-id="{{item.needID}}" data-target="DialogModal1">
+          <button class="cu-btn content" bindtap="showModal" data-id="{{item.needID}}" data-target="DialogModal1">
             <text class="cuIcon-writefill text-cyan"></text>
             <text class="text-black"> 提建议</text>
           </button>
-          <button class="cu-btn content" open-type="feedback" bindtap="showModal" data-id="{{item.needID}}" data-target="DialogModal2">
+          <button class="cu-btn content" bindtap="showModal" data-id="{{item.needID}}" data-target="DialogModal2">
             <text class="cuIcon-read text-yellow"></text>
             <text class="text-black"> 读想法</text>
           </button>
@@ -96,7 +96,7 @@
       </view>
     </view>
     <view class="padding-xl">
-      <textarea maxlength="-1" style="font-size:36rpx;"  bindinput="textareaAInput" placeholder="请输入您的建议"></textarea>
+      <input maxlength="-1" style="font-size:36rpx;"  bindinput="textareaAInput" placeholder="请输入您的建议"></input>
     </view>
     <view class="cu-bar bg-white justify-end">
       <view class="action">

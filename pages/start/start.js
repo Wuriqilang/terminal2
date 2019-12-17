@@ -3,18 +3,24 @@
 var app = getApp();
 function countdown(that) {
   var second = that.data.second;
-    if (second == 0) {
+  console.log(getCurrentPages()[getCurrentPages().length-1].route)
+  if (second == 0 && getCurrentPages()[getCurrentPages().length - 1].route!='pages/index/index') {
       wx.redirectTo({
         url: '/pages/index/index'
       })
+      return;
+  } else if (getCurrentPages()[getCurrentPages().length - 1].route == 'pages/index/index'){
+    return;
   }
-  var time = setTimeout(function () {
-    that.setData({
-      second: second - 1
-    });
-    countdown(that);
+  else{
+    var time = setTimeout(function () {
+      that.setData({
+        second: second - 1
+      });
+      countdown(that);
+    }, 1000)
   }
-    , 1000)
+
 
 }
 Page({

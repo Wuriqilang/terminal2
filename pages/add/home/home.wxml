@@ -3,23 +3,23 @@
 <cu-custom bgColor="bg-gradual-blue">
 	<view slot="content">我要提需求</view>
 </cu-custom>
-<form>
+<form bindsubmit='submitStart'>
 	<view class="cu-form-group">
 		<view class="title">标题</view>
-		<input placeholder="请输入需求标题"></input>
+		<input name="Title" placeholder="请输入需求标题"></input>
 	</view>
 	<view class="cu-form-group">
-		<view class="title">部门</view>
-		<input placeholder="请输入需求部门"></input>
+		<view class="Dept">部门</view>
+		<input name="dept" placeholder="请输入需求部门"></input>
 	</view>
 	<view class="cu-form-group">
-		<view class="title">需求人</view>
-		<input placeholder="请输入需求人名称（两个及以上）"></input>
+		<view class="People">需求人</view>
+		<input name="needPeople" placeholder="请输入需求人名称（两个及以上）"></input>
 		<text class="cuIcon-locationfill text-orange"></text>
 	</view>
 
 	<view class="cu-form-group margin-top">
-		<view class="title">需求背景</view>
+		<view class="Background">需求背景</view>
 		<input placeholder="请输入需求标题"></input>
 	</view>
 	<view class="cu-form-group">
@@ -27,7 +27,7 @@
 	</view>
 	<view class="cu-form-group">
 		<view class="title">价值体现</view>
-		<input placeholder="请输入需求价值"></input>
+		<input name="Value" placeholder="请输入需求价值"></input>
 		<text class="cuIcon-locationfill text-orange"></text>
 	</view>
 
@@ -54,7 +54,7 @@
 	</view>
 
   <view class="padding bg-white margin-top">  
-    <button class="cu-btn block line-orange lg">
+    <button class="cu-btn block line-orange lg" formType="submit">
     <text class="cuIcon-upload"></text> 提交
     </button>
   </view>
