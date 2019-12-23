@@ -1,6 +1,6 @@
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">需求市场</view>
+  <view slot="content">小行动，大改变</view>
 </cu-custom>
 
 

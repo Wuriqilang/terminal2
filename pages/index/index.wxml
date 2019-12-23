@@ -28,7 +28,7 @@
 
   <view class="action text-gray add-action" bindtap="NavChange" data-cur="add">
     <button class="cu-btn cuIcon-add bg-red shadow"></button>
-    提需求
+    提改善
   </view>
 
 	<view class="action" bindtap="NavChange" data-cur="study">

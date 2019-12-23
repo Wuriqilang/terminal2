@@ -117,7 +117,8 @@
 
 .suggest-title {
   text-align: center;
-  height: 90rpx;
+  font-weight: bold;
+  /* height: 90rpx; */
   line-height: 90rpx;
   color: #333;
   font-size: 32rpx;
@@ -139,7 +140,7 @@
 }
 
 .suggest-container .suggest-list:nth-child(2n) {
-  border-right: 1rpx solid #f5f5f5;
+  border-right: 1rpx solid #dddddd;
 }
 
 .suggest-list image {
@@ -202,6 +203,7 @@
 .needs-title {
   text-align: center;
   height: 90rpx;
+  font-weight: bold;
   line-height: 90rpx;
   color: #333;
   font-size: 32rpx;
@@ -297,6 +299,7 @@
   line-height: 90rpx;
   color: #333;
   font-size: 32rpx;
+    font-weight: bold;
 }
 
 .topic-title image {
