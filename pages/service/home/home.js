@@ -25,23 +25,37 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    InputFocus(e) {
+    inputMethod(e){
+      console.log(e)
       this.setData({
-        InputBottom: e.detail.height+50
+        Input: e.detail.value
       })
     },
+    InputFocus(e) {
+      if(e.detail.height){
+        this.setData({
+          InputBottom: e.detail.height
+        })
+      }
+    },
     InputBlur(e) {
+      console.log(e)
       this.setData({
         InputBottom: 50,
         Input:e.detail.value
       })
     },
     tapSubmit(e){
+      console.log(e.detail)
+
       var chats = this.data.chats;
       let input = this.data.Input;
+      if (input.length==0){
+        return;
+      }
       let userChat = {
         character:'user',
-        context:input,
+        context: input,
         date: new Date().toLocaleTimeString()
       }
       chats.push(userChat);

@@ -113,6 +113,12 @@ Component({
         swiperCurrent: e.detail.current
       })
     },
+    tapBanner: function (e) {
+      console.log(e.currentTarget.dataset)
+        wx.navigateTo({
+          url: e.currentTarget.dataset.id
+        })
+    },
 		tapMenu: function (e) {
 			if (e.currentTarget.dataset.id != 0) {
 				wx.navigateTo({

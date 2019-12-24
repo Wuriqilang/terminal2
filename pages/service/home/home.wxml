@@ -4,7 +4,7 @@
 </cu-custom>
 <view class="cu-chat">
   <view class="cu-item">
-    <view class="cu-avatar radius" style="background-image:url(../../../images/goods_service.png);"></view>
+    <view class="cu-avatar radius"><image class="cu-avatar radius" src='/images/shumabaobei.jpg'></image></view>
     <view class="main">
       <view class="content shadow">
         <text>你好！我是B6 CIM 数据代码宝贝机器人，有任何OIC、CIM相关的问题都可以问我哦</text>
@@ -20,12 +20,12 @@
           {{item.context}}
         </view>
       </view>
-      <view class="cu-avatar radius" style="background-image:url(../../../images/goods_service.png);"></view>
+      <view class="cu-avatar radius"><image class="cu-avatar radius" src='/images/user.jpg'></image></view>
       <view class="date">{{item.date}}</view>
     </view>
 
     <view wx:if="{{item.character=='robot'}}" class="cu-item">
-      <view class="cu-avatar radius" style="background-image:url(../../../images/goods_service.png);"></view>
+      <view class="cu-avatar radius"><image class="cu-avatar radius" src='/images/shumabaobei.jpg'></image></view>
       <view class="main">
         <view class="content shadow">
           {{item.context}}
@@ -41,8 +41,8 @@
   <view class="action">
     <text class="cuIcon-sound text-grey"></text>
   </view>
-  <input class="solid-bottom" bindfocus="InputFocus" bindblur="InputBlur" adjust-position="{{false}}" focus="{{false}}" maxlength="300" cursor-spacing="10" value='{{Input}}'></input>
-  <button class="cu-btn bg-green shadow" bindtap="tapSubmit">发送</button>
+  <input class="solid-bottom" bindfocus="InputFocus" bindchange="inputMethod"  adjust-position="{{false}}" focus="{{false}}" maxlength="300" cursor-spacing="10" value='{{Input}}' bindconfirm="tapSubmit" bindkeyboardheightchange="InputBlur"></input>
+   <button class="cu-btn bg-green shadow" bindtap="tapSubmit">发送</button> 
 </view>
 
 <view class="cu-tabbar-height"></view>

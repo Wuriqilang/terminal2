@@ -5,7 +5,7 @@
       <swiper class="swiper_box" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange" circular="circular">
         <block wx:for="{{banners}}" wx:key="id">
           <swiper-item>
-            <image bindtap="tapBanner" data-id="{{item.businessId}}" src="{{item.picUrl}}" class="slide-image" />
+            <image bindtap="tapBanner" data-id="{{item.linkUrl}}" src="{{item.picUrl}}" class="slide-image" />
           </swiper-item>
         </block>
       </swiper>
