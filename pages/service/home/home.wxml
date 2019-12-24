@@ -2,6 +2,8 @@
 <cu-custom bgColor="bg-gradual-blue">
   <view slot="content">CIM 数码宝贝 机器人</view>
 </cu-custom>
+
+<scroll-view>
 <view class="cu-chat">
   <view class="cu-item">
     <view class="cu-avatar radius"><image class="cu-avatar radius" src='/images/shumabaobei.jpg'></image></view>
@@ -35,13 +37,13 @@
     </view>
   </block>
 </view>
-
+</scroll-view>
 
 <view class="cu-bar foot input {{InputBottom!=0?'cur':''}}" style="bottom:{{InputBottom}}px">
   <view class="action">
     <text class="cuIcon-sound text-grey"></text>
   </view>
-  <input class="solid-bottom" bindfocus="InputFocus" bindchange="inputMethod"  adjust-position="{{false}}" focus="{{false}}" maxlength="300" cursor-spacing="10" value='{{Input}}' bindconfirm="tapSubmit" bindkeyboardheightchange="InputBlur"></input>
+  <input class="solid-bottom" bindfocus="InputFocus" bindchange="inputMethod"  adjust-position="{{false}}" focus="{{false}}" maxlength="300" cursor-spacing="10" value='{{Input}}' bindconfirm="tapSubmitKeyboard" bindkeyboardheightchange="InputBlur"></input>
    <button class="cu-btn bg-green shadow" bindtap="tapSubmit">发送</button> 
 </view>
 

@@ -68,6 +68,30 @@ Component({
         this.service(input);
       },1000)
     },
+
+    tapSubmitKeyboard(e) {
+      console.log(e.detail)
+
+      var chats = this.data.chats;
+      let input = e.detail.value;
+      if (input.length == 0) {
+        return;
+      }
+      let userChat = {
+        character: 'user',
+        context: input,
+        date: new Date().toLocaleTimeString()
+      }
+      chats.push(userChat);
+      this.setData({
+        chats: chats,
+        Input: ''
+      })
+      
+      setTimeout(() => {
+        this.service(input);
+      }, 1000)
+    },
     service(input){
       var chats = this.data.chats;
             //解析用户输入返回相应数据
