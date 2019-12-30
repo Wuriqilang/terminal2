@@ -1,7 +1,7 @@
 <!--pages/add/home/home.wxml-->
 
 <cu-custom bgColor="bg-gradual-blue">
-	<view slot="content">我要提需求</view>
+	<view slot="content">小行动，大改变</view>
 </cu-custom>
 <form bindsubmit='submitStart'>
 	<view class="cu-form-group">
@@ -9,21 +9,29 @@
 		<input name="Title" placeholder="请输入需求标题"></input>
 	</view>
 	<view class="cu-form-group">
-		<view class="Dept">部门</view>
-		<input name="dept" placeholder="请输入需求部门"></input>
+		<view class="title">部门</view>
+		<input name="Dept" placeholder="请输入需求部门"></input>
 	</view>
 	<view class="cu-form-group">
-		<view class="People">需求人</view>
-		<input name="needPeople" placeholder="请输入需求人名称（两个及以上）"></input>
+		<view class="title">改善人</view>
+		<input name="People" placeholder="请输入需求人名称"></input>
 		<text class="cuIcon-locationfill text-orange"></text>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">改善类型</view>
+		<picker name="Type" bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+			<view class="picker">
+				{{index?picker[index]:'请选择改善类型'}}
+			</view>
+		</picker>
 	</view>
 
 	<view class="cu-form-group margin-top">
-		<view class="Background">需求背景</view>
-		<input placeholder="请输入需求标题"></input>
+		<view class="title">改善背景</view>
+		<input name="Background" placeholder="请输入改善背景"></input>
 	</view>
 	<view class="cu-form-group">
-		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="需求内容"></textarea>
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" bindblur="textareaAInput" placeholder="需求内容"></textarea>
 	</view>
 	<view class="cu-form-group">
 		<view class="title">价值体现</view>
