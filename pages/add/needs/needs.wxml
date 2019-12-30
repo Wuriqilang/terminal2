@@ -68,15 +68,15 @@
             <text class="cuIcon-writefill text-cyan"></text>
             <text class="text-black"> 提建议</text>
           </button>
-          <button class="cu-btn content" bindtap="showModal" data-id="{{item.needID}}" data-target="DialogModal2">
+          <button class="cu-btn content" bindtap="showModal2" data-id="{{item.id}}" data-target="DialogModal2">
             <text class="cuIcon-read text-yellow"></text>
             <text class="text-black"> 读想法</text>
           </button>
-          <button class="cu-btn content animation-{{animation=='scale-up'?'scale-up':''}}"  data-class="scale-up" bindtap="toggle" open-type="feedback" >
+          <button class="cu-btn content animation-{{animation=='scale-up'?'scale-up':''}}" data-class="scale-up" bindtap="toggle" open-type="feedback">
             <text class="cuIcon-likefill text-red"></text>
             <text class="text-black"> 点赞</text>
           </button>
-          <button class="cu-btn content"  open-type="feedback" bindtap="toArticle" data-id="{{item.needID}}">
+          <button class="cu-btn content" open-type="feedback" bindtap="toArticle" data-id="{{item.needID}}">
             <text class="cuIcon-share text-blue"></text>
             <text class="text-black"> 成果</text>
           </button>
@@ -96,7 +96,7 @@
       </view>
     </view>
     <view class="padding-xl">
-      <input maxlength="-1" style="font-size:36rpx;"  bindinput="textareaAInput" placeholder="请输入您的建议"></input>
+      <input maxlength="-1" style="font-size:36rpx;" bindinput="textareaAInput" placeholder="请输入您的建议"></input>
     </view>
     <view class="cu-bar bg-white justify-end">
       <view class="action">
@@ -104,5 +104,33 @@
         <button class="cu-btn bg-green margin-left" bindtap="hideModal">确定</button>
       </view>
     </view>
+  </view>
+</view>
+
+<view class="cu-modal {{modalName=='DialogModal2'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">其他人的想法</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+  <view class="cu-item padding text-grey" wx:if="{{comments.length==0}}">暂无评论</view>
+  <view class="cu-list menu">
+      <view class="cu-item" wx:for="{{comments}}" wx:key>
+        <!-- <view class="cu-avatar radius lg">{{item.From}}</view> -->
+      <view class="content padding-tb-sm">
+        <view>
+          <text class="cuIcon-peoplefill text-blue margin-right-xs"></text> {{item.From}}</view>
+        <view class="text-gray text-sm text-left">
+          <text class="cuIcon-infofill margin-right-xs"></text> {{item.Context}}</view>
+      </view>
+
+        <view class="action">
+          <view class="text-grey text-xs">{{item.createdAt}}</view>
+        </view>
+      </view>
+  </view>
+
   </view>
 </view>

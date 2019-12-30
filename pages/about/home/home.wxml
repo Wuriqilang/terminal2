@@ -47,7 +47,7 @@
       <navigator class="content" url="/pages/about/about/about" hover-class="none">
         <!-- <image src="/images/logo.png" class="png" mode="aspectFit"></image> -->
         <text class="cuIcon-notice text-red"></text>
-        <text class="text-grey "> 关于BOE之窗</text>
+        <text class="text-grey "> 关于制造之窗</text>
       </navigator>
     </view>
     <view class="cu-item arrow">

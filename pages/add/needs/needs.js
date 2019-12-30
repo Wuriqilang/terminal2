@@ -11,7 +11,8 @@ Page({
     suggestID:"",
     textareaAValue: '',
     toggleDelay: false, 
-    modalName:""
+    modalName:"",
+    comments:[]
   },
 
   /**
@@ -73,6 +74,31 @@ Page({
       modalName: e.currentTarget.dataset.target
     })
   },
+  showModal2(e) {
+    //获取评论列表
+    var that = this;
+    let id = e.currentTarget.dataset.id;
+    console.log(id);
+    wx.request({
+      url: app.globalData.BaseURL + '/comments/boe/'+id,
+      success: function (res) {
+        if (res.data.code == 0) {
+          console.log(res.data)
+          that.setData({
+            comments: res.data.data
+          });
+        }
+      }
+    })
+
+
+    this.setData({
+      id: e.currentTarget.dataset.id,
+      modalName: e.currentTarget.dataset.target
+    })
+  },
+
+
   hideModal(e) {
     this.setData({
       modalName: null

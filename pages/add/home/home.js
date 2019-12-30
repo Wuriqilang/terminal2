@@ -87,15 +87,24 @@ Component({
     submitStart(e) {
       //console.log(e.detail.value);
       //为改善类型赋值
-      e.detail.value.Type = this.data.picker[e.detail.value.type];
+      e.detail.value.Type = this.data.picker[e.detail.value.Type];
       e.detail.value.Context = this.data.textareaAValue;
       console.log(e.detail.value);
       //将图片进行上传
       this.upload();
       //判断是否有输入
+      if (this.InputValidation(e.detail.value) !='验证通过'){
+        wx.showToast({
+          title: this.InputValidation(e.detail.value),
+          icon:'none'
+        })
+        return;
+      }
       var that = this;
       setTimeout(function () {
-        e.detail.value.imgPath = that.data.img;
+        if(that.data.img.count>0){
+          e.detail.value.imgPath = that.data.img;
+        }
         console.log(e.detail.value);
         wx.request({
           method: 'POST',
@@ -112,10 +121,8 @@ Component({
                 icon: 'success',
                 duration: 2000
               })
-              that.setData({
-                userName: '',
-                userID: '',
-                textareaAValue: ''
+              wx.navigateTo({
+                url: '/pages/add/needs/needs',
               })
             } else {
               wx.showToast({
@@ -156,6 +163,26 @@ Component({
             }
           }
         })
+      }
+    },
+    InputValidation(input){
+      console.log(input);
+      if(input.Title==''){
+        return '请输入标题'
+      } else if (input.Dept == ''){
+        return '请输入部门信息'
+      } else if (input.People == '') {
+        return '请输入改善人'
+      } else if (input.Type == '') {
+        return '请选择改善类型'
+      } else if (input.Background == '') {
+        return '请输入改善北京'
+      } else if (input.Context == '') {
+        return '请输入改善详细内容'
+      } else if (input.Value == '') {
+        return '请输入价值体现'
+      }else{
+        return '验证通过'
       }
     }
 
