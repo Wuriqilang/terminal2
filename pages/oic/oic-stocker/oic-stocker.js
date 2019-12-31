@@ -11,7 +11,7 @@ function initChart(canvas, width, height) {
 
   var option = {
     title: {
-      text: 'PH1 Srocker负载'
+      text: '全员参与率',
     },
     backgroundColor: "#ffffff",
     color: ["#37A2DA", "#32C5E9", "#67E0E3"],
@@ -34,7 +34,7 @@ function initChart(canvas, width, height) {
         }
       },
       data: [{
-        value: 69,
+        value: 78.3,
         name: '',
       }]
 
@@ -55,7 +55,7 @@ function initChart2(canvas, width, height) {
 
   var option = {
     title: {
-      text: 'PH2 Srocker负载'
+      text: '通过率'
     },
     backgroundColor: "#ffffff",
     color: ["#37A2DA", "#32C5E9", "#67E0E3"],
@@ -78,7 +78,7 @@ function initChart2(canvas, width, height) {
         }
       },
       data: [{
-        value: 80,
+        value: 92.5,
         name: '',
       }]
 

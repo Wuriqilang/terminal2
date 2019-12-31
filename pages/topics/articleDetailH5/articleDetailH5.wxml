@@ -11,14 +11,14 @@
       <view class="content-title">{{articleTitle}}</view>
       <view class="content-lin"></view>
       <view class="content-text">
-        <image class="content-img" mode="widthFix" src="{{TitleImage}}"></image>
-        <view class="content-box">
+        <image class="content-img" wx:if="{{TitleImage.length>0}}" mode="widthFix" src="{{TitleImage}}"></image>
+        <view class="content-box padding">
           <template is="wxParse" data="{{wxParseData:article.nodes}}" />
         </view>
       </view>
     </view>
 
-        <view class="topic-avatar">
+    <view class="topic-avatar margin-top">
       <image class="head-img" src="https://api.xr1228.com/static/resource/logo-tinybord.png"></image>
       <view class="head-name">{{topics.Zuozhe}}</view>
     </view>

@@ -74,7 +74,7 @@
 
     <view wx:if="{{suggest}}" class="suggest-container">
       <view class="suggest-title" bindtap="tapSales" data-id="{{toptuaninfo.remark}}">
-        <text>智能工厂</text>
+        <text>智能数据</text>
         <image src="../../../images/home_more.png" />
       </view>
       <view class="suggest-list" wx:for="{{suggest}}" wx:key="id" bindtap="tapOIC" data-id="{{item.linkUrl}}">
@@ -84,8 +84,6 @@
         <image src="{{item.picUrl}}" />
       </view>
     </view>
-
-    
   </view>
 
   <view class='cu-tabbar-height'></view>

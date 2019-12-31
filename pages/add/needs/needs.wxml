@@ -72,7 +72,7 @@
             <text class="cuIcon-read text-yellow"></text>
             <text class="text-black"> 读想法</text>
           </button>
-          <button class="cu-btn content animation-{{animation=='scale-up'?'scale-up':''}}" data-id="{{item.id}}" data-class="scale-up" bindtap="toggle" open-type="feedback">
+          <button class="cu-btn content animation-{{animation=='scale-up'?'scale-up':''}}" data-id="{{item.id}}" data-class="scale-up" bindtap="toggle">
             <text class="cuIcon-likefill text-red"></text>
             <text class="text-black"> 点赞</text>
           </button>
