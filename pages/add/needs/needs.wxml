@@ -25,7 +25,7 @@
           </view>
           <view class="cu-item flex-sub">
             <text class="cuIcon-creativefill text-blue"></text>
-            <text>{{item.Watch}}</text>
+            <text>{{item.Comments}}</text>
           </view>
           <view class="cu-item flex-sub">
             <text class="cuIcon-servicefill text-green"></text>
@@ -64,7 +64,7 @@
           </view>
         </view>
         <view class="cu-item">
-          <button class="cu-btn content" bindtap="showModal" data-id="{{item.needID}}" data-target="DialogModal1">
+          <button class="cu-btn content" bindtap="showModal" data-id="{{item.id}}" data-target="DialogModal1">
             <text class="cuIcon-writefill text-cyan"></text>
             <text class="text-black"> 提建议</text>
           </button>
@@ -72,11 +72,11 @@
             <text class="cuIcon-read text-yellow"></text>
             <text class="text-black"> 读想法</text>
           </button>
-          <button class="cu-btn content animation-{{animation=='scale-up'?'scale-up':''}}" data-class="scale-up" bindtap="toggle" open-type="feedback">
+          <button class="cu-btn content animation-{{animation=='scale-up'?'scale-up':''}}" data-id="{{item.id}}" data-class="scale-up" bindtap="toggle" open-type="feedback">
             <text class="cuIcon-likefill text-red"></text>
             <text class="text-black"> 点赞</text>
           </button>
-          <button class="cu-btn content" open-type="feedback" bindtap="toArticle" data-id="{{item.needID}}">
+          <button class="cu-btn content" bindtap="toArticle" data-id="{{item.Watch}}">
             <text class="cuIcon-share text-blue"></text>
             <text class="text-black"> 成果</text>
           </button>
@@ -96,12 +96,12 @@
       </view>
     </view>
     <view class="padding-xl">
-      <input maxlength="-1" style="font-size:36rpx;" bindinput="textareaAInput" placeholder="请输入您的建议"></input>
+      <input maxlength="-1" style="font-size:36rpx;" value="{{textareaAValue}}" bindblur="textareaAInput" bindinput="textareaAInput" placeholder="请输入您的建议"></input>
     </view>
     <view class="cu-bar bg-white justify-end">
       <view class="action">
         <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
-        <button class="cu-btn bg-green margin-left" bindtap="hideModal">确定</button>
+        <button class="cu-btn bg-green margin-left" bindtap="submitComment">确定</button>
       </view>
     </view>
   </view>

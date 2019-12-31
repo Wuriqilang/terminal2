@@ -20,7 +20,10 @@ Page({
    */
   onLoad: function (options) {
     //需求列表
-    var that =  this;
+    this.needList();
+  },
+  needList(){
+    var that = this;
     wx.request({
       url: app.globalData.BaseURL + '/needsList/boe',
       success: function (res) {
@@ -35,6 +38,19 @@ Page({
   },
   toggle(e) {
     console.log(e);
+    let id = e.currentTarget.dataset.id;
+    wx.request({
+      method:'PUT',
+      url: app.globalData.BaseURL + '/needsStar/boe/' + id,
+      success: function (res) {
+        if (res.data.code == 0) {
+          console.log(res.data)
+          that.setData({
+            comments: res.data.data
+          });
+        }
+      }
+    })
     var anmiaton = e.currentTarget.dataset.class;
     var that = this;
     that.setData({
@@ -43,7 +59,9 @@ Page({
     setTimeout(function () {
       that.setData({
         animation: ''
-      })
+      },
+      that.needList()//数据更新
+    )
     }, 1000)
   },
   toggleDelay() {
@@ -70,7 +88,7 @@ Page({
   },
   showModal(e) {
     this.setData({
-      suggestID:e.currentTarget.dataset.id,
+      commentID:e.currentTarget.dataset.id,
       modalName: e.currentTarget.dataset.target
     })
   },
@@ -90,11 +108,14 @@ Page({
         }
       }
     })
-
-
     this.setData({
       id: e.currentTarget.dataset.id,
       modalName: e.currentTarget.dataset.target
+    })
+  },
+  textareaAInput(e) {
+    this.setData({
+      textareaAValue: e.detail.value
     })
   },
 
@@ -104,11 +125,91 @@ Page({
       modalName: null
     })
   },
+  submitComment(){
+    let id = this.data.commentID
+    let comment = {
+      From : 'CIM'+' admin',
+      Context:this.data.textareaAValue,
+      Type:'needs'
+    }
+    var that = this;
+    wx.request({
+      method: 'POST',
+      url: app.globalData.BaseURL + '/comments/boe/' + id,
+      data: comment,
+      success: function (res) {
+        if (res.data.code == 0) {
+          console.log(res.data)
+          wx.showToast({
+            title: '提交成功！'
+          })
+          that.hideModal();
+          that.setData({
+            textareaAValue:''
+          })
+          that.needList();
+        }
+      }
+    })
+  },
   toArticle(e){
     console.log(e.currentTarget.dataset.id);
-    wx.showToast({
-      title: '功能开发中',
+    if(e.currentTarget.dataset.id == ''){
+      wx.showToast({
+        title: '暂无成果分享',
+        icon:"none"
+      })
+      return;
+    }
+    let articleInfo='';
+    //根据id获取文章信息
+    wx.request({
+      url: app.globalData.BaseURL + '/articleDetail/boe/' + e.currentTarget.dataset.id,
+      data: {
+      },
+      success: function (res) {
+        if (res.data.code == 0) {
+          articleInfo = res.data.data;
+          console.log(articleInfo);
+          if (articleInfo.type == 'file') {
+            wx.request({
+              url: app.globalData.BaseURL + '/articleDetail/boe/' + articleInfo.id,
+              data: {
+              },
+              success: function (res) {
+                if (res.data.code == 0) {
+                  wx.showToast({
+                    title: '读取文件中',
+                    icon: 'none'
+                  })
+                  var fileUrl = res.data.data.Context;
+                  console.log(fileUrl)
+                  wx.downloadFile({
+                    url: fileUrl,
+                    success: function (res) {
+                      console.log(res)
+                      var filePath = res.tempFilePath
+                      wx.openDocument({
+                        filePath: filePath,
+                        success: function (res) {
+                          console.log('打开文档成功')
+                        }
+
+                      })
+                    }
+                  })
+                }
+              }
+            })
+          } else if (articleInfo.type == 'html') {
+            wx.navigateTo({
+              url: '/pages/topics/articleDetailH5/articleDetailH5?articleID=' + articleInfo.id
+            })
+          }
+        }
+      }
     })
+
   },
   /**
    * 用户点击右上角分享

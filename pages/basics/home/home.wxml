@@ -43,7 +43,7 @@
             </view>
             <view class="cu-item flex-sub">
               <text class="cuIcon-creativefill text-blue"></text>
-              <text>{{item.Watch}}</text>
+              <text>{{item.Comments}}</text>
             </view>
             <view class="cu-item flex-sub">
               <text class="cuIcon-servicefill text-green"></text>
