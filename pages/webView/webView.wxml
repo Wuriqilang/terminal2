@@ -1,0 +1,12 @@
+<!--pages/webView/webView.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">{{title}}</view>
+</cu-custom>
+
+
+<view class="padding">
+考试系统暂未上线
+{{url}}
+</view>
+

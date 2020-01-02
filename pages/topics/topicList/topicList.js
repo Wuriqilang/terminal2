@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    topicList: [],
+    testList: [],
   },
 
   /**
@@ -16,59 +16,36 @@ Page({
     //需求列表
     var that = this;
     wx.request({
-      url: app.globalData.BaseURL + '/topicList/boe',
+      url: app.globalData.BaseURL + '/TestList/boe',
       success: function (res) {
         if (res.data.code == 0) {
           console.log(res.data)
           that.setData({
-            topicList: res.data.data
+            testList: res.data.data
           });
         }
       }
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  toTest(e) {
+    console.log(e);
+    if (e.currentTarget.dataset.item.Context == '') {
+      wx.showToast({
+        title: '尚未生成试卷',
+        icon: "none"
+      })
+      return;
+    }
+    let TestInfo = e.currentTarget.dataset.item;
+    if(TestInfo.type=='link'){
+      wx.navigateTo({
+        url: '/pages/webView/webView?url=https://ks.youkaoshi.cn/doexam/NRg4ywvM90.html&title=' + TestInfo.Title,
+      })
+    }
+    
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
 
   /**
    * 用户点击右上角分享

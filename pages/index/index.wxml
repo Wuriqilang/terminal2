@@ -19,25 +19,26 @@
     <view class="{{PageCur=='basics'?'text-red':'text-gray'}}">首页</view>
   </view>
 
-	  <view class="action" bindtap="NavChange" data-cur="service">
+  <view class="action" bindtap="NavChange" data-cur="study">
     <view class='icon-cu-image'>
-      <image src="/images/tabbar/service{{PageCur=='service'?'_cur':''}}.png"></image>
+      <image src="/images/tabbar/study{{PageCur=='study'?'_cur':''}}.png"></image>
     </view>
-    <view class="{{PageCur=='service'?'text-red':'text-gray'}}">小C</view>
+    <view class="{{PageCur=='study'?'text-red':'text-gray'}}">专栏</view>
   </view>
+
 
   <view class="action text-gray add-action" bindtap="NavChange" data-cur="add">
     <button class="cu-btn cuIcon-add bg-red shadow"></button>
     提改善
   </view>
 
-	<view class="action" bindtap="NavChange" data-cur="study">
-    <view class='icon-cu-image'>
-      <image src="/images/tabbar/study{{PageCur=='study'?'_cur':''}}.png"></image>
-    </view>
-    <view class="{{PageCur=='study'?'text-red':'text-gray'}}">学习</view>
-  </view>
 
+	  <view class="action" bindtap="NavChange" data-cur="service">
+    <view class='icon-cu-image'>
+      <image src="/images/tabbar/service{{PageCur=='service'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='service'?'text-red':'text-gray'}}">小C</view>
+  </view>
 
   <view class="action" bindtap="NavChange" data-cur="about">
     <view class='icon-cu-image'>

@@ -21,7 +21,8 @@
     "pages/task/home/home",
     "pages/task/detail/detail",
     "pages/task/add/add",
-    "pages/task/appoint/appoint"
+    "pages/task/appoint/appoint",
+    "pages/webView/webView"
   ],
   "window": {
     "navigationStyle": "custom"

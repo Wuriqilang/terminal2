@@ -1,10 +1,10 @@
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">专栏</view>
+  <view slot="content">考试</view>
 </cu-custom>
 
 <view class="cu-card case isCard">
-  <view class="cu-item shadow" wx:for="{{topicList}}" wx:key>
+  <view class="cu-item shadow" wx:for="{{testList}}" wx:key data-item="{{item}}" bindtap="toTest">
     <view class="image">
       <image src="{{item.TitleImage}}" mode="widthFix"></image>
       <view class="cu-tag bg-blue">{{item.Wenzhangleixing}}</view>
@@ -14,14 +14,14 @@
     </view>
     <view class="cu-list menu-avatar">
       <view class="cu-item">
-        <view class="cu-avatar round lg">{{item.Wenzhangleixing.substr(0,1)}}</view>
+        <view class="cu-avatar radius lg bg-blue">{{item.Zuozhe}}</view>
         <view class="content flex-sub">
           <view class="text-grey">{{item.Title}}</view>
           <view class="text-gray text-sm flex justify-between">
-            2019/11/29
+            {{item.createdAt}}
             <view class="text-gray text-sm">
-              <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
-              <text class="cuIcon-appreciatefill margin-lr-xs"></text> 20
+              <text class="cuIcon-attentionfill margin-lr-xs"></text> {{item.Read}}
+              <text class="cuIcon-peoplefill margin-lr-xs"></text> {{item.People}}
               <text class="cuIcon-messagefill margin-lr-xs"></text> 30
             </view>
           </view>

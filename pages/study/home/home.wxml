@@ -1,39 +1,39 @@
 <cu-custom bgColor="bg-gradual-blue">
-  <view slot="content">学习</view>
+  <view slot="content">专栏</view>
 </cu-custom>
 
 <scroll-view scroll-x class="bg-gradual-blue nav text-center">
   <view class="cu-item {{0==TabCur?'text-white cur':''}}" bindtap="tabSelect" data-id="0">
-    <text class="cuIcon-camerafill"></text> 课程
+    <text class="cuIcon-camerafill"></text> 改善
   </view>
   <view class="cu-item {{1==TabCur?'text-white cur':''}}" bindtap="tabSelect" data-id="1">
-    <text class="cuIcon-upstagefill"></text> 试题
+    <text class="cuIcon-upstagefill"></text> 新闻
   </view>
   <view class="cu-item {{2==TabCur?'text-white cur':''}}" bindtap="tabSelect" data-id="2">
-    <text class="cuIcon-clothesfill"></text> 经验
+    <text class="cuIcon-clothesfill"></text> 知识
   </view>
 </scroll-view>
 
 <block wx:if="{{0==TabCur}}">
-<view class="cu-card case {{isCard?'no-card':''}}">
-  <view class="cu-item shadow">
+<view class="cu-card case">
+  <view class="cu-item shadow" wx:for="{{topicList}}" wx:key data-id="{{item.id}}" wx:if="{{item.Wenzhangleixing=='改善'}}" bindtap="toArticle">
     <view class="image">
-      <image src="https://api.xr1228.com/static/resource/tuoye800.png" mode="widthFix"></image>
-      <view class="cu-tag bg-blue">托业</view>
+      <image src="{{item.TitleImage}}" mode="widthFix"></image>
+      <view class="cu-tag bg-blue">{{item.Wenzhangleixing}}</view>
       <view class="cu-bar bg-shadeBottom">
-        <text class="text-cut">托业800分独家秘笈！</text>
+        <text class="text-cut">{{item.Overview}}</text>
       </view>
     </view>
     <view class="cu-list menu-avatar">
       <view class="cu-item">
-        <view class="cu-avatar round lg" style="background-image:url(https://api.xr1228.com/static/resource/tuoye800.png);"></view>
+        <view class="cu-avatar radius lg bg-blue">{{item.Zuozhe}}</view>
         <view class="content flex-sub">
-          <view class="text-grey">托业800学习</view>
+          <view class="text-grey">{{item.Title}}</view>
           <view class="text-gray text-sm flex justify-between">
-            2019/11/29
+            {{item.createdAt}}
             <view class="text-gray text-sm">
-              <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
-              <text class="cuIcon-appreciatefill margin-lr-xs"></text> 20
+              <text class="cuIcon-attentionfill margin-lr-xs"></text> {{item.Read}}
+              <text class="cuIcon-appreciatefill margin-lr-xs"></text> {{item.People}}
               <text class="cuIcon-messagefill margin-lr-xs"></text> 30
             </view>
           </view>
@@ -45,7 +45,33 @@
 </block>
 
 <block wx:if="{{1==TabCur}}">
-<view class="cu-card case {{isCard?'no-card':''}}">
+<view class="cu-card case">
+  <view class="cu-item shadow" wx:for="{{topicList}}" wx:key data-id="{{item.id}}" wx:if="{{item.Wenzhangleixing=='新闻'}}" bindtap="toArticle">
+    <view class="image">
+      <image src="{{item.TitleImage}}" mode="widthFix"></image>
+      <view class="cu-tag bg-blue">{{item.Wenzhangleixing}}</view>
+      <view class="cu-bar bg-shadeBottom">
+        <text class="text-cut">{{item.Overview}}</text>
+      </view>
+    </view>
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+        <view class="cu-avatar radius lg bg-blue">{{item.Zuozhe}}</view>
+        <view class="content flex-sub">
+          <view class="text-grey">{{item.Title}}</view>
+          <view class="text-gray text-sm flex justify-between">
+            {{item.createdAt}}
+            <view class="text-gray text-sm">
+              <text class="cuIcon-attentionfill margin-lr-xs"></text> {{item.Read}}
+              <text class="cuIcon-appreciatefill margin-lr-xs"></text> {{item.Star}}
+              <text class="cuIcon-messagefill margin-lr-xs"></text> 30
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+<!-- <view class="cu-card case {{isCard?'no-card':''}}">
   <view class="cu-item shadow">
     <view class="image">
       <image src="https://api.xr1228.com/static/resource/pinzhi.png" mode="widthFix"></image>
@@ -71,5 +97,37 @@
       </view>
     </view>
   </view>
+</view> -->
 </view>
+</block>
+
+
+<block wx:if="{{2==TabCur}}">
+<view class="cu-card case">
+  <view class="cu-item shadow" wx:for="{{topicList}}" wx:key data-id="{{item.id}}" wx:if="{{item.Wenzhangleixing=='知识'}}" bindtap="toArticle">
+    <view class="image">
+      <image src="{{item.TitleImage}}" mode="widthFix"></image>
+      <view class="cu-tag bg-blue">{{item.Wenzhangleixing}}</view>
+      <view class="cu-bar bg-shadeBottom">
+        <text class="text-cut">{{item.Overview}}</text>
+      </view>
+    </view>
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+        <view class="cu-avatar radius lg bg-blue">{{item.Zuozhe}}</view>
+        <view class="content flex-sub">
+          <view class="text-grey">{{item.Title}}</view>
+          <view class="text-gray text-sm flex justify-between">
+            {{item.createdAt}}
+            <view class="text-gray text-sm">
+              <text class="cuIcon-attentionfill margin-lr-xs"></text> {{item.Read}}
+              <text class="cuIcon-appreciatefill margin-lr-xs"></text> {{item.Star}}
+              <text class="cuIcon-messagefill margin-lr-xs"></text> 30
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  </view>
 </block>
